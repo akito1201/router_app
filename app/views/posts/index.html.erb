@@ -1,5 +1,36 @@
+<div class="routes-wrapper">
 <div class="route-contents">
-  <%= link_to "投稿ページ", new_post_path %>
-  <h1>投稿一覧</h1>
-  
+  <div class="posts-wrapper">
+    <h1>投稿一覧</h1>
+  </div>
+  <% @posts.each do |post|%>
+  <%= link_to post_path(post) do %>
+  <div class="posts">
+      <div class= post>
+        <div class="content">
+          <p class="content-name">title:</p>
+          <%= post.title %>
+        </div>
+        <div class="content">
+          <p class="content-name">area:</p>
+          <%= post.prefecture.name %>
+          <%= post.city %>
+        </div>
+        </div>
+        <div class="content">
+          <p class="content-name">with:</p>
+          <%= post.member.name %>
+        </div>
+        <div class="content">
+          <p class="content-name">when:</p>
+          <%= post.timing.name %>
+        </div>
+        <div class="post-nickname">
+          <%=link_to "by  #{post.user.nickname}", "#", class:"post-nickname" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
 </div>

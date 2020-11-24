@@ -3,21 +3,28 @@ header {
   width: 100%;
   position: sticky;
   top:0;
-  height:45vh;
+  height:10vh;
   padding: 10px 20px 0px;
-  background-image:url('travel-pic.png');
-  opacity: 0.7;
+  opacity: 0.9;
+  z-index:999;
+  background-color: gray;
 }
 
 .fa-route {
   font-size: 50px;
   margin-bottom: 20px;
   color: white;
+  
+}
+
+.top-page-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .nav {
   display: flex;
-  justify-content: space-between;
 }
 
 .lists-left {
@@ -30,6 +37,7 @@ header {
   font-size: 20px;
   border-radius: 15px;
   padding: 10px;
+  box-shadow: 0 0 8px black;
 }
 
 .route-list:hover {
@@ -43,9 +51,24 @@ header {
   font-size: 20px;
   border-radius: 15px;
   padding: 10px;
+  box-shadow: 0 0 8px black;
 }
 
 .favorite-list:hover {
+  background: rgba(255,255,255, 1);
+}
+
+.new-list {
+  color: black;
+  background: rgba(255,255,255, 0.7);
+  font-size: 20px;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: 0 0 8px black;
+  margin-left: 20px;
+}
+
+.new-list:hover {
   background: rgba(255,255,255, 1);
 }
 
@@ -59,6 +82,7 @@ header {
   font-size: 20px;
   border-radius: 15px;
   padding: 10px;
+  box-shadow: 0 0 8px black;
 }
 
 .user-nickname:hover {
@@ -72,6 +96,7 @@ header {
   font-size: 20px;
   border-radius: 15px;
   padding: 10px;
+  box-shadow: 0 0 8px black;
 }
 
 .logout:hover {
