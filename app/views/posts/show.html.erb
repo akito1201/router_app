@@ -1,0 +1,43 @@
+<div class="routes-wrapper">
+  <div class="route-contents">
+    <div class="posts">
+      <div class= post>
+        <div class="content">
+          <p class="content-name">title:</p>
+          <%= @post.title %>
+        </div>
+        <div class="content">
+          <p class="content-name">area:</p>
+          <%= @post.prefecture.name %>
+          <%= @post.city %>
+        </div>
+        </div>
+        <div class="content">
+          <p class="content-name">with:</p>
+          <%= @post.member.name %>
+        </div>
+        <div class="content">
+          <p class="content-name">when:</p>
+          <%= @post.timing.name %>
+        </div>
+        <div class="post-nickname">
+          <%=link_to "by  #{@post.user.nickname}", "#", class:"post-nickname" %>
+        </div>
+      </div>
+      <div class="details">
+        <div class="content">
+          <p class="content-name">when:</p>
+          <%= @post.plan.text %>
+        </div>
+        <div class="content">
+          <p class="content-name">when:</p>
+          <%= @post.plan.place %>
+        </div>
+        <div class="content">
+          <p class="content-name">when:</p>
+          <%= image_tag @post.plan.image, :size => '600x400'%>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
