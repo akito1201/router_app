@@ -12,14 +12,14 @@
   <body>
     <header class='top-page-header'>
         <%# アイコン トップページへのリンク%>
-        
+      <div class="icon">
         <a href="/"><i class="fas fa-route"></i></a>
-
-      <div class='nav'>
+      </div>
         <ul class='lists-left'>
           <% if user_signed_in? %>
             <li><%= link_to 'My Routes', "#", class: "route-list" %></li>
             <li><%= link_to 'お気に入り', "#", class: "favorite-list" %></li>
+            <li><%= link_to "New Route", new_post_path, class: "new-list" %></li>
           <% end %>
         </ul>
         <ul class='lists-right'>
@@ -31,7 +31,6 @@
             <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
           <% end %>
         </ul>
-      </div>
     </header>
     <%= yield %>
   </body>
