@@ -1,0 +1,22 @@
+<%= form_with(model: @post_plan, url:posts_path, local: true) do |f| %>
+  <div class="post-box">
+    記事を投稿する
+
+<%# Postsに保存 %>
+  <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
+  <%= f.text_area :text, class:"text", placeholder:"テキスト" %>
+  <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
+  <%= f.text_field :city, class:"city", placeholder:"市区町村" %>
+  <%= f.collection_select(:member_id, Member.all, :id, :name, {}, {class:"member-select"}) %>
+  <%= f.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"time-select"}) %>
+
+<%# Plansに保存 %>
+  <%= f.text_area :place, class:"place", placeholder:"場所" %>
+  <%= f.text_area :image, class:"image" %>
+  <%= f.text_area :text, class:"text", placeholder:"テキスト" %>
+
+
+
+    <%= f.submit "投稿する" ,class:"btn" %>
+  </div>
+<% end %>
