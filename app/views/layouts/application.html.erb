@@ -4,12 +4,35 @@
     <title>RouterApp</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://use.fontawesome.com/releases/v5.6.1/css/all.css" rel="stylesheet">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <header class='top-page-header'>
+        <%# アイコン トップページへのリンク%>
+        
+        <a href="/"><i class="fas fa-route"></i></a>
+
+      <div class='nav'>
+        <ul class='lists-left'>
+          <% if user_signed_in? %>
+            <li><%= link_to 'My Routes', "#", class: "route-list" %></li>
+            <li><%= link_to 'お気に入り', "#", class: "favorite-list" %></li>
+          <% end %>
+        </ul>
+        <ul class='lists-right'>
+          <% if user_signed_in? %>
+            <li><%= link_to current_user.nickname, "#", class: "user-nickname" %></li>
+            <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete, class: "logout" %></li> 
+          <% else %>
+            <li><%= link_to 'ログイン', new_user_session_path, class: "login" %></li>
+            <li><%= link_to '新規登録', new_user_registration_path, class: "sign-up" %></li>
+          <% end %>
+        </ul>
+      </div>
+    </header>
     <%= yield %>
   </body>
 </html>

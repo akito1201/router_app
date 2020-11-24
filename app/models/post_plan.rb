@@ -1,9 +1,21 @@
 class PostPlan
   include ActiveModel::Model
-  attr_accessor :title, :outline, :prefecture_id, :city, :member_id, :timing_id, :text, :image, :place, :post_id, :user_id
+  attr_accessor :title, :outline, :prefecture_id, :city, :member_id, :transportation_id, :timing_id, :text, :image, :place, :post_id, :user_id
+
+  with_options presence: true do
+    validates :title
+    validates :outline
+  end
+
+  with_options presence: true, numericality: { other_than: 1} do
+    validates :prefecture_id
+    validates :transportation_id
+    validates :member_id
+    validates :timing_id
+  end
 
   def save
-    post = Post.create(title: title, outline: outline, prefecture_id: prefecture_id, city: city, transportation_id: transportation_id, member_id: member_id, timing_id: timing_id, user_id: current_user.id)
-    Plan.create(text: text, place: place, post_id: post.id)
+    post = Post.create(title: title, outline: outline, prefecture_id: prefecture_id, city: city, transportation_id: transportation_id, member_id: member_id, timing_id: timing_id, user_id: user_id)
+    Plan.create(text: text, place: place, image: image, post_id: post.id)
   end
 end

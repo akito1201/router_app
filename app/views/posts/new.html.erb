@@ -4,15 +4,21 @@
 
 <%# Postsに保存 %>
   <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
-  <%= f.text_area :text, class:"text", placeholder:"テキスト" %>
+  <%= f.text_area :outline, class:"text", placeholder:"テキスト" %>
   <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
   <%= f.text_field :city, class:"city", placeholder:"市区町村" %>
   <%= f.collection_select(:member_id, Member.all, :id, :name, {}, {class:"member-select"}) %>
   <%= f.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"time-select"}) %>
+  <%= f.collection_select(:transportation_id, Transportation.all, :id, :name, {}, {class:"transportation-select"}) %>
 
 <%# Plansに保存 %>
   <%= f.text_area :place, class:"place", placeholder:"場所" %>
-  <%= f.text_area :image, class:"image" %>
+  <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
   <%= f.text_area :text, class:"text", placeholder:"テキスト" %>
 
 
