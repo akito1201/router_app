@@ -1,0 +1,23 @@
+<%= form_with(model: @post_plan, url: post_path, method: :patch, local: true) do |f| %>
+  <div class="post-box">
+    記事を投稿する
+
+<%# Postsに保存 %>
+  <%= f.text_field :title, value: @post.title, class:"title", placeholder:"タイトル" %>
+  <%= f.text_area :outline, value: @post.outline, class:"text", placeholder:"テキスト" %>
+  <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {selected: @post.prefecture_id}, {class:"prefecture-select"}) %>
+  <%= f.text_field :city, class:"city", value: @post.city, placeholder:"市区町村" %>
+  <%= f.collection_select(:member_id, Member.all, :id, :name, {selected: @post.member_id}, {class:"member-select"}) %>
+  <%= f.collection_select(:timing_id, Timing.all, :id, :name, {selected: @post.timing_id}, {class:"time-select"}) %>
+  <%= f.collection_select(:transportation_id, Transportation.all, :id, :name, {selected: @post.transportation_id}, {class:"transportation-select"}) %>
+
+<%# Plansに保存 %>
+  <%= f.text_area :place, class:"place", value: @plan.place, placeholder:"場所" %>
+    <div class="click-upload">
+      <p>クリックしてファイルをアップロード</p>
+      <%= f.file_field :image, id:"item-image" %>
+    </div>
+    <%= f.text_area :text, class:"text", value: @plan.text, placeholder:"テキスト" %>
+    <%= f.submit "投稿する" ,class:"btn" %>
+  </div>
+<% end %>
