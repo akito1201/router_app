@@ -17,7 +17,7 @@
       </div>
         <ul class='lists-left'>
           <% if user_signed_in? %>
-            <li><%= link_to 'My Routes', "#", class: "route-list" %></li>
+            <li><%= link_to 'My Routes', "/users/#{current_user.id}/index", class: "route-list" %></li>
             <li><%= link_to 'お気に入り', "#", class: "favorite-list" %></li>
             <li><%= link_to "New Route", new_post_path, class: "new-list" %></li>
           <% end %>
