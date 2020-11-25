@@ -5,16 +5,19 @@ class PostsController < ApplicationController
 
   def new
     @post_plan = PostPlan.new
+    @post = Post.new
   end
 
   def create
     @post_plan = PostPlan.new(post_plan_params)
+    binding.pry
     if @post_plan.valid?
       @post_plan.save
       redirect_to root_path
     else
       render :new
     end
+    post = Post.find_by(id: @post_plan.post_id)
   end
 
   def show

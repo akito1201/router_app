@@ -17,6 +17,7 @@ class PostPlan
   def save
     post = Post.create(title: title, outline: outline, prefecture_id: prefecture_id, city: city, transportation_id: transportation_id, member_id: member_id, timing_id: timing_id, user_id: user_id)
     Plan.create(text: text, place: place, image: image, post_id: post.id)
+    @post_name = post.id
   end
 
   def update

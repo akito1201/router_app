@@ -1,0 +1,9 @@
+<%# Plansに保存 %>
+  <%= f.text_area :place, class:"place", placeholder:"場所" %>
+  <div class="click-upload">
+        <p>
+          クリックしてファイルをアップロード
+        </p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+  <%= f.text_area :text, class:"text", placeholder:"テキスト" %>
