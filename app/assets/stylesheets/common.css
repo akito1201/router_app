@@ -76,20 +76,7 @@ header {
   display: flex;
 }
 
-.user-nickname {
-  color: black;
-  background: rgba(255,255,255, 0.7);
-  font-size: 20px;
-  border-radius: 15px;
-  padding: 10px;
-  box-shadow: 0 0 8px black;
-}
-
-.user-nickname:hover {
-  background: rgba(255,255,255, 1);
-}
-
-.logout {
+.header-button {
   margin-left:20px;
   color: black;
   background: rgba(255,255,255, 0.7);
@@ -99,7 +86,7 @@ header {
   box-shadow: 0 0 8px black;
 }
 
-.logout:hover {
+.header-button:hover {
   background: rgba(255,255,255, 1);
 }
 

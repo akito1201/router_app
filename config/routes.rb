@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   devise_for :users
 
   resources :posts  do
-    resources :plans
+    resources :plans, only: :create
   end
   
 end

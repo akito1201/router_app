@@ -1,4 +1,4 @@
-<%= form_with(model: @post_plan, url:posts_path, local: true) do |f| %>
+<%= form_with(model: @post_plan, url:posts_path, local: true, id: "form") do |f| %>
   <div class="post-box">
     記事を投稿する
 
@@ -23,6 +23,24 @@
 
 
 
-    <%= f.submit "投稿する" ,class:"btn" %>
+    <%= f.submit "投稿する" ,class:"btn", id:"commit"%>
   </div>
+
+  <div id="add-plan">プランを追加する</div>
 <% end %>
+
+<%# 
+<div id="test" style="display: none">
+<%= form_with(model: @plan, url:post_plans_path, local: true) do |f| %>
+<%# Plansに保存 %>
+  <%# <%= f.text_area :place, class:"place", placeholder:"場所" %>
+  <%# <div class="click-upload"> %>
+        <%# <p> %>
+          <%# クリックしてファイルをアップロード %>
+        <%# </p> %> 
+        <%# <%= f.file_field :image, id:"item-image" %> 
+      <%# </div> %>
+  <%# <%= f.text_area :text, class:"text", placeholder:"テキスト" %> 
+  <%# <div id="add-plan">プランを追加する</div> %>
+<%# <% end %> 
+<%# </div> %> 
