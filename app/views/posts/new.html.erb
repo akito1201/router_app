@@ -1,46 +1,17 @@
-<%= form_with(model: @post_plan, url:posts_path, local: true, id: "form") do |f| %>
+<%= form_with(model: @post, local: true, id: "form") do |form| %>
   <div class="post-box">
     記事を投稿する
 
 <%# Postsに保存 %>
-  <%= f.text_field :title, class:"title", placeholder:"タイトル" %>
-  <%= f.text_area :outline, class:"text", placeholder:"テキスト" %>
-  <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
-  <%= f.text_field :city, class:"city", placeholder:"市区町村" %>
-  <%= f.collection_select(:member_id, Member.all, :id, :name, {}, {class:"member-select"}) %>
-  <%= f.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"time-select"}) %>
-  <%= f.collection_select(:transportation_id, Transportation.all, :id, :name, {}, {class:"transportation-select"}) %>
-
-<%# Plansに保存 %>
-  <%= f.text_area :place, class:"place", placeholder:"場所" %>
-  <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"item-image" %>
-      </div>
-  <%= f.text_area :text, class:"text", placeholder:"テキスト" %>
+  <%= form.text_field :title, class:"title", placeholder:"タイトル", id: "forms" %>
+  <%= form.text_area :outline, class:"text", placeholder:"テキスト" %>
+  <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
+  <%= form.text_field :city, class:"city", placeholder:"市区町村" %>
+  <%= form.collection_select(:member_id, Member.all, :id, :name, {}, {class:"member-select"}) %>
+  <%= form.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"time-select"}) %>
+  <%= form.collection_select(:transportation_id, Transportation.all, :id, :name, {}, {class:"transportation-select"}) %>
 
 
-
-    <%= f.submit "投稿する" ,class:"btn", id:"commit"%>
+    <%= form.submit "ルート入力へ" , id:"submit"%>
   </div>
-
-  <div id="add-plan">プランを追加する</div>
-<% end %>
-
-<%# 
-<div id="test" style="display: none">
-<%= form_with(model: @plan, url:post_plans_path, local: true) do |f| %>
-<%# Plansに保存 %>
-  <%# <%= f.text_area :place, class:"place", placeholder:"場所" %>
-  <%# <div class="click-upload"> %>
-        <%# <p> %>
-          <%# クリックしてファイルをアップロード %>
-        <%# </p> %> 
-        <%# <%= f.file_field :image, id:"item-image" %> 
-      <%# </div> %>
-  <%# <%= f.text_area :text, class:"text", placeholder:"テキスト" %> 
-  <%# <div id="add-plan">プランを追加する</div> %>
-<%# <% end %> 
-<%# </div> %> 
+  <% end %>
