@@ -1,36 +1,133 @@
-<%= form_with(model: @plan, url: post_plans_path(params[:post_id]), method: :post, local: true, id: "form") do |f| %>
-  <div class="post-box">
-    ルートを入力してください
-
-<%# Plansに保存 %>
 <div id="plan-wrapper" data-id=<%= params[:post_id] %>>
-  <%= f.text_area :place, class:"place", placeholder:"場所" %>
-  <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p>
-        <%= f.file_field :image, id:"item-image" %>
+
+  <div class="plan-list" id="first-plan">
+    <%= form_with(model: @plan, url: post_plans_path(params[:post_id]), method: :post, local: true, class:"plan-lists", id: "form") do |f| %>
+      <div class="weight-bold-text">
+        スポット名
+        <span class="indispensable">必須</span>
       </div>
-  <%= f.text_area :text, class:"text", placeholder:"テキスト" %> 
-    <%= f.submit "投稿する", class:"submit"%>
+      <%= f.text_area :place, class:"place", placeholder:"場所" %>
+
+      <div class="click-upload">
+      <p>クリックしてファイルをアップロード（任意）</p>
+      <%= f.file_field :image, id:"item-image" %>
+      </div>
+
+      <div class="weight-bold-text">
+        おすすめポイント
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :text, class:"text", placeholder:"テキスト" %> 
+      <%= f.submit "投稿する", class:"submit", id:"submit" %>
+      </div>
+
+    <% end %>
   </div>
 
-  <div id="add-plan">プランを追加する</div>
-<% end %>
-</div>
+    <div class="add-plan" id="add-plan1">＋ スポットを追加する</div>
 
 
-<div id="test" style="display: none;">
-<%= form_with(model: @plan, url:post_plans_path, local: true, id: "form2") do |f| %>
-  <%= f.text_area :place, class:"place", placeholder:"場所" %>
-  <div class="click-upload">
-        <p>
-          クリックしてファイルをアップロード
-        </p> 
-        <%= f.file_field :image, id:"item-image" %>
+  <div class="plan-list" id="plan1" style="display: none;">
+    <%= form_with(model: @plan, url: post_plans_path(params[:post_id]), method: :post, local: true, class:"plan-lists", id: "form1") do |f| %>
+      <div class="weight-bold-text">
+        スポット名
+        <span class="indispensable">必須</span>
       </div>
-  <%= f.text_area :text, class:"text", placeholder:"テキスト" %> 
-  <div id="add-plan">プランを追加する</div>
-    <%= f.submit "投稿する", class:"submit"%>
-<% end %>
-</div> 
+      <%= f.text_area :place, class:"place", placeholder:"場所" %>
+
+      <div class="click-upload">
+      <p>クリックしてファイルをアップロード（任意）</p>
+      <%= f.file_field :image, id:"item-image" %>
+      </div>
+
+      <div class="weight-bold-text">
+        おすすめポイント
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :text, class:"text", placeholder:"テキスト" %> 
+    
+      </div>
+      <%= f.submit "投稿する", class:"submit", id:"submit1", style: "display: none;" %>
+    <% end %>
+  </div>
+
+  <div class="add-plan" id="add-plan2" style="display: none;">＋ スポットを追加する</div>
+
+
+  <div class="plan-list" id="plan2" style="display: none;">
+    <%= form_with(model: @plan, url: post_plans_path(params[:post_id]), method: :post, local: true, class:"plan-lists", id: "form2") do |f| %>
+      <div class="weight-bold-text">
+        スポット名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :place, class:"place", placeholder:"場所" %>
+
+      <div class="click-upload">
+      <p>クリックしてファイルをアップロード（任意）</p>
+      <%= f.file_field :image, id:"item-image" %>
+      </div>
+
+      <div class="weight-bold-text">
+        おすすめポイント
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :text, class:"text", placeholder:"テキスト" %> 
+    
+      </div>
+      <%= f.submit "投稿する", class:"submit", id:"submit2", style: "display: none;" %>
+    <% end %>
+  </div>
+
+  <div class="add-plan" id="add-plan3" style="display: none;">＋ スポットを追加する</div>
+
+
+  <div class="plan-list" id="plan3" style="display: none;">
+    <%= form_with(model: @plan, url: post_plans_path(params[:post_id]), method: :post, local: true, class:"plan-lists", id: "form3") do |f| %>
+      <div class="weight-bold-text">
+        スポット名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :place, class:"place", placeholder:"場所" %>
+
+      <div class="click-upload">
+      <p>クリックしてファイルをアップロード（任意）</p>
+      <%= f.file_field :image, id:"item-image" %>
+      </div>
+
+      <div class="weight-bold-text">
+        おすすめポイント
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :text, class:"text", placeholder:"テキスト" %> 
+    
+      </div>
+      <%= f.submit "投稿する", class:"submit", id:"submit3", style: "display: none;" %>
+    <% end %>
+  </div>
+
+  <div class="add-plan" id="add-plan4" style="display: none;">＋ スポットを追加する</div>
+
+
+  <div class="plan-list" id="plan4" style="display: none;">
+    <%= form_with(model: @plan, url: post_plans_path(params[:post_id]), method: :post, local: true, class:"plan-lists", id: "form4") do |f| %>
+      <div class="weight-bold-text">
+        スポット名
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :place, class:"place", placeholder:"場所" %>
+
+      <div class="click-upload">
+      <p>クリックしてファイルをアップロード（任意）</p>
+      <%= f.file_field :image, id:"item-image" %>
+      </div>
+
+      <div class="weight-bold-text">
+        おすすめポイント
+        <span class="indispensable">必須</span>
+      </div>
+      <%= f.text_area :text, class:"text", placeholder:"テキスト" %> 
+      </div>
+      <%= f.submit "投稿する", class:"submit", id:"submit4", style: "display: none;" %>
+    <% end %>
+  </div>
+</div>

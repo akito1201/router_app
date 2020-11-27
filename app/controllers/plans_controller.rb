@@ -8,6 +8,7 @@ class PlansController < ApplicationController
     plan = Plan.create(plan_params)
     if plan.valid?
       plan.save
+      redirect_to root_path
     else
       render :new
     end
