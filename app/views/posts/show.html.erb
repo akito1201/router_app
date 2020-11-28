@@ -1,7 +1,7 @@
 <div class="routes-wrapper">
   <div class="route-contents">
     <div class="posts">
-            <% if @favorite_item == true %>
+        <% if @favorite.checked == true %>
           <div class= "favorite-btn" style="background-color: #FF6600; color: white;" id= "favorite-btn" data_id=<%= @post.id %>>
             <%= image_tag "favorite-star.png" ,id:"favorite-star-icon" ,width:"20",height:"20" %>
             <span id="favorite">お気に入り登録済み</span>
@@ -41,8 +41,8 @@
 
       <% @plans.each do |plan| %>
         <div class="details">
-          <%= link_to "編集", edit_post_plan_path(plan) %>
-          <%= link_to "削除", post_plan_path(plan), method: :delete %>
+          <%= link_to "編集", "/posts/#{@post.id}/plans/#{plan.id}/edit" %>
+          <%= link_to "削除", "/posts/#{@post.id}/plans/#{plan.id}", method: :delete %>
           <div class="content">
             <p class="content-name">スポット</p>
             <%= plan.place %>

@@ -1,4 +1,6 @@
 class PostsController < ApplicationController
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
+
   def index
     @posts = Post.all.order("created_at DESC")
   end
@@ -18,27 +20,24 @@ class PostsController < ApplicationController
   end
 
   def show
-    @post = Post.find(params[:id])
     @plans = Plan.where(post_id: @post.id)
+    @favorite = Favorite.find_by(user_id:current_user.id, post_id: @post.id)
   end
 
   def edit
-    @post = Post.find(params[:id])
   end
 
   def update
-    post = Post.find(params[:id])
-    if post.valid?
-      post.update(post_params)
-      redirect_to post_path(post)
+    if @post.valid?
+      @post.update(post_params)
+      redirect_to post_path(@post)
     else
       render :edit
     end
   end
 
   def destroy
-    post = Post.find(params[:id])
-    if post.destroy
+    if @post.destroy
       redirect_to root_path
     else
       render :show
@@ -51,6 +50,8 @@ class PostsController < ApplicationController
     params.require(:post).permit(:title, :outline, :prefecture_id, :city, :transportation_id, :member_id, :timing_id).merge(user_id: current_user.id)
   end
 
-
+  def set_post
+    @post = Post.find(params[:id])
+  end
 
 end

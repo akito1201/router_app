@@ -1,1 +1,36 @@
-aaaaafdafff
+<div class="routes-wrapper">
+<div class="route-contents">
+  <div class="posts-wrapper">
+    <h1>お気に入り投稿一覧</h1>
+  </div>
+  <% @favorites.each do |favorite|%>
+  <%= link_to post_path(favorite.post_id) do %>
+  <div class="posts">
+      <div class= "post">
+        <div class="content">
+          <p class="content-name">title:</p>
+          <%= favorite.post.title %>
+        </div>
+        <div class="content">
+          <p class="content-name">area:</p>
+          <%= favorite.post.prefecture.name %>
+          <%= favorite.post.city %>
+        </div>
+        </div>
+        <div class="content">
+          <p class="content-name">with:</p>
+          <%= favorite.post.member.name %>
+        </div>
+        <div class="content">
+          <p class="content-name">when:</p>
+          <%= favorite.post.timing.name %>
+        </div>
+        <div class="post-nickname">
+          <%= link_to "by  #{favorite.post.user.nickname}", "/users/#{favorite.post.user_id}/show", class:"post-nickname" %>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
+</div>
