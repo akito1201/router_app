@@ -1,6 +1,7 @@
 class PlansController < ApplicationController
+  before_action :set_post, only: [:new, :edit]
+
   def new
-    @post = Post.find(params[:post_id])
     @plans = Plan.where(post_id: @post.id)
     @plan = Plan.new
   end
@@ -21,8 +22,9 @@ class PlansController < ApplicationController
 
   def update
     plan = Plan.find(params[:id])
-    if plan.update
-      redirect_to "posts#show"
+    if plan.valid?
+      plan.update(plan_params)
+      redirect_to root_path
     else
       render :edit
     end
@@ -32,6 +34,10 @@ class PlansController < ApplicationController
 
   def plan_params
     params.require(:plan).permit(:text, :place, :image).merge(post_id: params[:post_id])
+  end
+
+  def set_post
+    @post = Post.find(params[:post_id])
   end
 
 end

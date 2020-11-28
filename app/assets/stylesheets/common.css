@@ -34,7 +34,7 @@ header {
 .route-list {
   color: black;
   background: rgba(255,255,255, 0.7);
-  font-size: 20px;
+  font-size: 15px;
   border-radius: 15px;
   padding: 10px;
   box-shadow: 0 0 8px black;
@@ -48,7 +48,7 @@ header {
   margin-left:20px;
   color: black;
   background: rgba(255,255,255, 0.7);
-  font-size: 20px;
+  font-size: 15px;
   border-radius: 15px;
   padding: 10px;
   box-shadow: 0 0 8px black;
@@ -61,7 +61,7 @@ header {
 .new-list {
   color: black;
   background: rgba(255,255,255, 0.7);
-  font-size: 20px;
+  font-size: 15px;
   border-radius: 15px;
   padding: 10px;
   box-shadow: 0 0 8px black;
@@ -80,7 +80,7 @@ header {
   margin-left:20px;
   color: black;
   background: rgba(255,255,255, 0.7);
-  font-size: 20px;
+  font-size: 15px;
   border-radius: 15px;
   padding: 10px;
   box-shadow: 0 0 8px black;

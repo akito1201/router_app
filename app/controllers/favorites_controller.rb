@@ -15,6 +15,6 @@ class FavoritesController < ApplicationController
   end
 
   def index
-    @favorites = Favorite.where(user_id: params[:user_id], checked: true).includes(:post)
+    @favorites = Favorite.where(user_id: current_user.id, checked: true).includes(:post)
   end
 end
