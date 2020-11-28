@@ -1,0 +1,53 @@
+.add-plan {
+  background-color: lightsalmon;
+  text-align: center;
+  margin: 20px auto;
+  padding:10px;
+  border-radius: 20px;
+  color: white;
+  width: 50%;
+}
+
+.add-plan:hover {
+opacity: 0.8;
+}
+
+.plan-lists {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 30px;
+  border: solid 5px cornflowerblue;
+}
+
+.plan-list {
+  margin-top: 20px;
+
+}
+
+.submit {
+  padding: 10px;
+  background-color: cornflowerblue;
+  color: white;
+  border-radius: 30px;
+  margin: 15px auto;
+  width: 150px;
+
+}
+
+.indispensable {
+  background: #ea352d;
+  margin-left: 8px;
+  padding: 3px;
+  border-radius: 2px;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+}
+
+.weight-bold-text {
+  font-weight: bold;
+  min-width: 170px;
+  margin-bottom: 10px;
+}
+

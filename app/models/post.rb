@@ -6,7 +6,8 @@ class Post < ApplicationRecord
   belongs_to :timing
   
   belongs_to :user
-  has_one :plan, dependent: :destroy
+  has_many :favorites, dependent: :destroy
+  has_many :plans, dependent: :destroy
 end
 
 

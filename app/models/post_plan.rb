@@ -1,6 +1,6 @@
 class PostPlan
   include ActiveModel::Model
-  attr_accessor :title, :outline, :prefecture_id, :city, :member_id, :transportation_id, :timing_id, :text, :image, :place, :post_id, :user_id
+  # attr_accessor :title, :outline, :prefecture_id, :city, :member_id, :transportation_id, :timing_id, :text, :image, :place, :post_id, :user_id
 
   with_options presence: true do
     validates :title

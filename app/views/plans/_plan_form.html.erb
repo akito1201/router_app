@@ -1,0 +1,9 @@
+<%#= form_with(model: @plan, url: post_plans_path(params[:post_id]), method: :post, local: true, class:"plan-lists", id: "form") do |f| %>
+  <%= f.text_area :place, class:"place", placeholder:"場所" %>
+  <div class="click-upload">
+    <p>クリックしてファイルをアップロード</p>
+    <%= f.file_field :image, id:"item-image" %>
+  </div>
+  <%= f.text_area :text, class:"text", placeholder:"テキスト" %> 
+  <%= f.submit "投稿する", class:"submit"%>
+<%# <% end %> 
