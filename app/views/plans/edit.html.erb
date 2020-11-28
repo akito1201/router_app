@@ -1,0 +1,12 @@
+<%= form_with(model: @plan, local: true) do |f| %>
+  <div class="post-box">
+    記事を編集する
+    <%= f.text_area :place, class:"place", value: @plan.place, placeholder:"場所" %>
+      <div class="click-upload">
+        <p>クリックしてファイルをアップロード</p>
+        <%= f.file_field :image, id:"item-image" %>
+      </div>
+      <%= f.text_area :text, class:"text", value: @plan.text, placeholder:"テキスト" %>
+      <%= f.submit "投稿する" ,class:"btn" %>
+  </div>
+<% end %>

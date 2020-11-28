@@ -19,19 +19,18 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @plan = Plan.where(post_id: @post.id)
+    @plans = Plan.where(post_id: @post.id)
   end
 
   def edit
     @post = Post.find(params[:id])
-    @plan = Plan.find_by(post_id: @post.id)
-    @post_plan = PostPlan.new(post_id: params[:id])
   end
 
   def update
-    @post_plan = PostPlan.new(post_plan_update_params)
-    if @post_plan.update
-      redirect_to root_path
+    post = Post.find(params[:id])
+    if post.valid?
+      post.update(post_params)
+      redirect_to post_path(post)
     else
       render :edit
     end

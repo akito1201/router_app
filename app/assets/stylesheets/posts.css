@@ -48,3 +48,13 @@
   text-align: center;
   color: white;
 }
+
+.details {
+  width: 80vw;
+  padding: 20px 0;
+  margin-left: 50px;
+  margin-bottom: 20px;
+  background-color: whitesmoke;
+  border-radius: 30px;
+  box-shadow: 0 0 8px gray;
+}
