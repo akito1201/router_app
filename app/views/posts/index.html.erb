@@ -1,25 +1,25 @@
 <div class="routes-wrapper">
-<div class="route-contents">
-  <div class="posts-wrapper">
-    <h1>投稿一覧</h1>
-  </div>
-  <% @favorite_counts.each do |fc|%>
-  <%= link_to post_path(fc.post_id) do %>
-  <div class="posts">
-      <div class= "post">
-        <div class="content">
-          <p class="content-name favorite-count">お気に入り登録数</p>
-          <%= fc.count %>
-        </div>
-        <div class="content">
-          <p class="content-name">title:</p>
-          <%= fc.post.title %>
-        </div>
-        <div class="content">
-          <p class="content-name">area:</p>
-          <%= fc.post.prefecture.name %>
-          <%= fc.post.city %>
-        </div>
+  <div class="route-contents">
+    <div class="posts-wrapper">
+      <h1>投稿一覧</h1>
+    </div>
+    <% @favorite_counts.each do |fc|%>
+      <%= link_to post_path(fc.post_id) do %>
+      <div class="posts">
+        <div class= "post">
+          <div class="content">
+            <p class="content-name favorite-count">お気に入り登録数</p>
+            <%= fc.count %>
+          </div>
+          <div class="content">
+            <p class="content-name">title:</p>
+            <%= fc.post.title %>
+          </div>
+          <div class="content">
+            <p class="content-name">area:</p>
+            <%= fc.post.prefecture.name %>
+            <%= fc.post.city %>
+          </div>
         </div>
         <div class="content">
           <p class="content-name">with:</p>

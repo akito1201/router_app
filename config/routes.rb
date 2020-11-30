@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'posts/:post_id/favorites', to: 'favorites#check'
   get 'users/:user_id/favorites', to: 'favorites#index'
   get 'posts/:post_id/favorite_counts/:count', to: 'favorite_counts#count'
+  # get 'posts/search'
   root to: 'posts#index'
   devise_for :users
 
