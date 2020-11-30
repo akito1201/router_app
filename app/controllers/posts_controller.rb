@@ -2,6 +2,7 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
+    @favorite_counts = FavoriteCount.all.order("count DESC").includes(:post)
     @posts = Post.all.order("created_at DESC")
   end
 
@@ -21,7 +22,8 @@ class PostsController < ApplicationController
 
   def show
     @plans = Plan.where(post_id: @post.id)
-    @favorite = Favorite.find_by(user_id:current_user.id, post_id: @post.id)
+    favorite = Favorite.find_by(user_id:current_user.id, post_id: @post.id)
+    @favorite = favorite.checked? if favorite.present?
   end
 
   def edit

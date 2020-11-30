@@ -12,6 +12,10 @@
 opacity: 0.8;
 }
 
+.add-show {
+  margin-left: 50px;
+}
+
 .plan-lists {
   display: flex;
   flex-direction: column;

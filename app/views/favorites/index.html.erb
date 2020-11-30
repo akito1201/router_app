@@ -3,6 +3,7 @@
   <div class="posts-wrapper">
     <h1>お気に入り投稿一覧</h1>
   </div>
+  <% if @favorites.present? %>
   <% @favorites.each do |favorite|%>
   <%= link_to post_path(favorite.post_id) do %>
   <div class="posts">
@@ -31,6 +32,11 @@
       </div>
     </div>
     <% end %>
+  <% end %>
+  <% else %>
+    <div>
+    　お気に入りに登録されている投稿はありません
+    </div>
   <% end %>
 </div>
 </div>

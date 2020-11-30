@@ -1,7 +1,7 @@
 <div class="routes-wrapper">
   <div class="route-contents">
     <div class="posts">
-        <% if @favorite.checked == true %>
+        <% if @favorite == true %>
           <div class= "favorite-btn" style="background-color: #FF6600; color: white;" id= "favorite-btn" data_id=<%= @post.id %>>
             <%= image_tag "favorite-star.png" ,id:"favorite-star-icon" ,width:"20",height:"20" %>
             <span id="favorite">お気に入り登録済み</span>
@@ -59,6 +59,7 @@
           <% end %>
         </div>
       <% end %>
+      <%= link_to "＋ スポットを追加する", new_post_plan_path(@post), class:"add-plan add-show" %>
     </div>
   </div>
 </div>
