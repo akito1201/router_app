@@ -1,36 +1,30 @@
 <div class="routes-wrapper">
-<div class="route-contents">
-  <div class="posts-wrapper">
-    <h1><%= @user.nickname %>'s routes</h1>
-  </div>
+  <div class="route-contents">
+    <div class="posts-wrapper">
+      <h1><%= @user.nickname %>'s routes</h1>
+    </div>
+
   <% @posts.each do |post|%>
-  <%= link_to post_path(post) do %>
-  <div class="posts">
-      <div class= post>
-        <div class="content">
-          <p class="content-name">title:</p>
-          <%= post.title %>
-        </div>
-        <div class="content">
-          <p class="content-name">area:</p>
-          <%= post.prefecture.name %>
-          <%= post.city %>
-        </div>
-        </div>
-        <div class="content">
-          <p class="content-name">with:</p>
-          <%= post.member.name %>
-        </div>
-        <div class="content">
-          <p class="content-name">when:</p>
-          <%= post.timing.name %>
-        </div>
-        <div class="post-nickname">
-          <%= link_to "by  #{post.user.nickname}", "/users/#{post.user_id}/show", class:"post-nickname" %>
+    <%= link_to post_path(post) do %>
+      <div class="posts">
+        <div class= post>
+          <div class="content">
+            <p class="content-name">title</p>
+            <%= post.title %>
+          </div>
+          <div class="content">
+            <p class="content-name">area</p>
+            <%= post.prefecture.name %>
+            <%= post.city %>
+          </div>
+          <div class="content">
+            <p class="content-name">with</p>
+            <%= post.member.name %>
+          </div>
         </div>
       </div>
-    </div>
     <% end %>
   <% end %>
+  </div>
 </div>
-</div>
+

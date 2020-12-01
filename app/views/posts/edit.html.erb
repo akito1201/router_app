@@ -1,36 +1,57 @@
-<%= form_with(model: @post, local: true) do |f| %>
+<div class="form-wrapper">
+<div class="form-box">
+<%= form_with(model: @post, local: true, id: "form") do |form| %>
   <div class="post-box">
-    記事を編集する
+    <h3>記事を編集する</h3>
 
-    <div class="posts">
-      <div class="post">
-        <div class="content">
-          <p class="content-name" id="test">title:</p>
-          <%= f.text_field :title, value: @post.title, class:"title", placeholder:"タイトル" %>
+<%# Postsに保存 %>
+<%# タイトル %>
+    <div class="post-titile">
+      <div class="weight-bold-text">
+        タイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= form.text_field :title, value: @post.title, class:"title", placeholder:"タイトル", id: "forms", class: "form-title"%>
+    </div>
+
+    <%# 概要 %>
+    <div class="post-outline">
+      <div class="weight-bold-text">
+        ルート概要
+        <span class="indispensable">必須</span>
+      </div>
+      <%= form.text_area :outline, value: @post.outline, class:"form-outline", placeholder:"テキスト" %>
+    </div>
+
+    <div class="region">
+    <%# prefecture %>
+      <div class="region-content">
+        <div class="weight-bold-text">
+          都道府県
+          <span class="indispensable">必須</span>
         </div>
-        <div class="content">
-          <p class="content-name" id="test">outline:</p>
-          <%= f.text_area :outline, value: @post.outline, class:"text", placeholder:"概要" %>
+        <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {selected: @post.prefecture_id}, {class:"prefecture-select"}) %>
+      </div>
+    <%# 市区町村 %>
+      <div class="post-outline">
+        <div class="weight-bold-text">
+          市区町村
         </div>
-        <div class="content">
-          <p class="content-name">area:</p>
-          <%= f.collection_select(:prefecture_id, Prefecture.all, :id, :name, {selected: @post.prefecture_id}, {class:"prefecture-select"}) %>
-          <%= f.text_field :city, class:"city", value: @post.city, placeholder:"市区町村" %>
-        </div>
-        </div>
-        <div class="content">
-          <p class="content-name">with:</p>
-          <%= f.collection_select(:member_id, Member.all, :id, :name, {selected: @post.member_id}, {class:"member-select"}) %>
-        </div>
-        <div class="content">
-          <p class="content-name">when:</p>
-          <%= f.collection_select(:timing_id, Timing.all, :id, :name, {selected: @post.timing_id}, {class:"time-select"}) %>
-        </div>
-        <div class="content">
-          <p class="content-name">when:</p>
-          <%= f.collection_select(:transportation_id, Transportation.all, :id, :name, {selected: @post.transportation_id}, {class:"transportation-select"}) %>
-        </div>
-        <%= f.submit "入力完了" , id:"submit"%>
-      </div>
+        <%= form.text_area :city, value: @post.city, class:"form-city", placeholder:"任意で記入" %>
+      </div>
+    </div>
+
+    <%# メンバー %>
+    <div class="form">
+      <div class="weight-bold-text">
+        メンバー
+        <span class="indispensable">必須</span>
+      </div>
+      <%= form.collection_select(:member_id, Member.all, :id, :name, {selected: @post.member_id}, {class:"member-select"}) %>
+    </div>
+    <%= form.submit "入力完了" , id:"submit", class:"submit"%>
+  <% end %>
   </div>
-<% end %>
+</div>
+
+

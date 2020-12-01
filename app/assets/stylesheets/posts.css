@@ -4,7 +4,7 @@
 }
 
 body {
-    background-image:url('outside.jpg');
+    background-image:url('travel.jpg');
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -18,33 +18,38 @@ body {
 
 .posts-wrapper {
   text-align: center;
+  background: rgba(45,45,45, 0.9);
+  
 }
 
 .content {
   display: flex;
   padding-left: 30px;
   margin: 5px 0;
-  color: black;
+  color: white;
+  align-items: center;
 }
 
 .content-name {
   background-color: cadetblue;
-  border-radius: 10px;
   color: white;
   padding: 5px 20px;
-  margin-right: 8px;
+  margin: 10px 20px 15px 0;
   box-shadow: 0 0 8px gray;
+  width: 9%;
 }
 
 .posts {
-  width: 80vw;
-  padding: 20px 0;
-  margin-left: 50px;
-  margin-bottom: 20px;
-  background-color: #CCFFCC;
-  border-radius: 30px;
-  box-shadow: 0 0 8px #66FF66;
-}
+    width: 80vw;
+    margin: 50px auto;
+    text-align: center;
+    background: rgba(45,45,45, 0.9);
+    color: white;
+    height: 100%;
+    padding: 30px 0 20px;
+    box-shadow: 0 0 8px gray;
+  }
+
 
 .details {
   text-align: center;
@@ -52,7 +57,8 @@ body {
 
 .post-nickname {
   text-align: center;
-  color: #009900;
+  color: white;
+  margin-top: 20px;
 }
 
 .details {
@@ -67,26 +73,26 @@ body {
 
 .favorite-count {
   background-color: orange;
+  border-radius: 20px;
+  width:15%;
 }
 
-.route-contents h1{
+
+.posts-wrapper {
   width: 20%;
   margin: 20px auto;
-  border-radius: 30px;
-  color: orange;
+  color: white;
   padding: 5px 0;
-  background-color: white;
-  box-shadow: 0 0 8px #66FF66;
 }
 
 .form-wrapper {
   width: 100%;
-  height: 650px;
+  height: 680px;
 }
 
 .form-box {
   width: 80vw;
-  margin: 100px auto;
+  margin: 50px auto;
   text-align: center;
   background: rgba(45,45,45, 0.8);
   color: white;
@@ -99,32 +105,54 @@ body {
 }
 
 .form-title{
-  width: 500px;
+  width: 90%;
   height: 30px;
 }
 
 .form-outline {
-  width: 500px;
+  width: 90%;
   height: 110px;
 }
 
 .region {
   display: flex;
   margin: 0 auto;
+  width: 100%;
+  justify-content: space-around;
+
 }
 
 .prefecture-select {
-  width: 150px;
+  width: 100%;
   height: 30px;
 }
 
 .form-city {
   height: 30px;
-  width: 300px;
+  width: 100%;
 }
 
 .member-select {
-  width: 100px;
+  width: 25%;
   height: 30px;
   margin-bottom: 30px;
+}
+
+.post-box h3 {
+  font-size: 25px;
+}
+
+.edit-destroy-btn {
+  color: white;
+  padding: 3px;
+  border: 1px solid white;
+  margin: 0 5px;
+}
+
+.edit-destroy-btn:hover {
+  background-color: lightgray;
+}
+
+.edit-destroy {
+  padding-bottom: 20px;
 }

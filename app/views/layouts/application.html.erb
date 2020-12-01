@@ -17,9 +17,15 @@
       </div>
         <ul class='lists-left'>
           <% if user_signed_in? %>
-            <li><%= link_to 'My Routes', "/users/#{current_user.id}/index", class: "route-list" %></li>
-            <li><%= link_to 'お気に入り', "/users/#{current_user.id}/favorites", class: "favorite-list" %></li>
-            <li><%= link_to "New Route", new_post_path, class: "new-list" %></li>
+            <div class="my-routes">
+              <li><%= link_to 'My SPOT', "/users/#{current_user.id}/index", class: "route-list" %></li>
+            </div>
+            <div class="header-favorite">
+              <li><%= link_to 'お気に入り', "/users/#{current_user.id}/favorites", class: "favorite-list" %></li>
+            </div>
+            <div class="header-new-route">
+              <li><%= link_to "New SPOT", new_post_path, class: "new-list" %></li>
+            </div>
           <% end %>
         </ul>
         <div>検索フォーム</div>

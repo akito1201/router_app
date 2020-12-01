@@ -1,6 +1,5 @@
 class PostPlan
   include ActiveModel::Model
-  # attr_accessor :title, :outline, :prefecture_id, :city, :member_id, :transportation_id, :timing_id, :text, :image, :place, :post_id, :user_id
 
   with_options presence: true do
     validates :title
@@ -9,9 +8,8 @@ class PostPlan
 
   with_options presence: true, numericality: { other_than: 1} do
     validates :prefecture_id
-    validates :transportation_id
     validates :member_id
-    validates :timing_id
+ 
   end
 
   def save

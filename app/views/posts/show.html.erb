@@ -1,6 +1,12 @@
 <div class="routes-wrapper">
   <div class="route-contents">
     <div class="posts">
+      <% if current_user.id == @post.user_id %>
+        <div class="edit_destroy">
+          <%= link_to "編集", edit_post_path(@post), class:"edit-destroy-btn" %>
+          <%= link_to "削除", post_path(@post), method: :delete, class:"edit-destroy-btn" %>
+        </div>
+      <% else %>
         <% if @favorite == true %>
           <div class= "favorite-btn" style="background-color: #FF6600; color: white;" id= "favorite-btn" data_id=<%= @post.id %>>
             <%= image_tag "favorite-star.png" ,id:"favorite-star-icon" ,width:"20",height:"20" %>
@@ -12,26 +18,21 @@
             <span id="favorite">お気に入りに登録する</span>
           </div>
         <% end %>
+      <% end %>
       <div class="post">
-        <%= link_to "編集", edit_post_path(@post) %>
-        <%= link_to "削除", post_path(@post), method: :delete %>
         <div class="content">
-          <p class="content-name" id="test">title:</p>
+          <p class="content-name" id="test">title</p>
           <%= @post.title %>
         </div>
         <div class="content">
-          <p class="content-name">area:</p>
+          <p class="content-name">area</p>
           <%= @post.prefecture.name %>
           <%= @post.city %>
         </div>
         </div>
         <div class="content">
-          <p class="content-name">with:</p>
+          <p class="content-name">with</p>
           <%= @post.member.name %>
-        </div>
-        <div class="content">
-          <p class="content-name">when:</p>
-          <%= @post.timing.name %>
         </div>
         <div class="post-nickname">
           <%=link_to "by  #{@post.user.nickname}", "#", class:"post-nickname" %>
@@ -40,26 +41,27 @@
 
 
       <% @plans.each do |plan| %>
-        <div class="details">
+      <div class="posts">
           <%= link_to "編集", "/posts/#{@post.id}/plans/#{plan.id}/edit" %>
           <%= link_to "削除", "/posts/#{@post.id}/plans/#{plan.id}", method: :delete %>
           <div class="content">
-            <p class="content-name">スポット</p>
+            <p class="content-name">SPOT</p>
             <%= plan.place %>
           </div>
           <div class="content">
-            <p class="content-name">おすすめポイント</p>
+            <p class="content-name">about</p>
             <%= plan.text %>
           </div>
           <% if plan.image.attached? %>
-            <div class="content">
-              <p class="content-name">画像</p>
-              <%= image_tag plan.image, :size => '600x400' %>
+            <div class="image-content">
+              <%= image_tag plan.image, class:"plan-image" %>
             </div>
           <% end %>
         </div>
       <% end %>
+      <div class="add-box">
       <%= link_to "＋ スポットを追加する", new_post_plan_path(@post), class:"add-plan add-show" %>
+      </div>
     </div>
   </div>
 </div>

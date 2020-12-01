@@ -22,10 +22,6 @@
           <p class="content-name">with:</p>
           <%= favorite.post.member.name %>
         </div>
-        <div class="content">
-          <p class="content-name">when:</p>
-          <%= favorite.post.timing.name %>
-        </div>
         <div class="post-nickname">
           <%= link_to "by  #{favorite.post.user.nickname}", "/users/#{favorite.post.user_id}/show", class:"post-nickname" %>
         </div>

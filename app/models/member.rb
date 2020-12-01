@@ -4,7 +4,7 @@ class Member < ActiveHash::Base
       { id: 2, name: '友達と' },
       { id: 3, name: 'デートで' },
       { id: 4, name: '家族で' },
-      { id: 5, name: '一人で' }
+      { id: 5, name: '誰とでも' }
     ]
   
   include ActiveHash::Associations
