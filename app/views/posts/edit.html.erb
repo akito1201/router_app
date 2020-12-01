@@ -25,7 +25,7 @@
 
     <div class="region">
     <%# prefecture %>
-      <div class="region-content">
+      <div class="post-prefecture">
         <div class="weight-bold-text">
           都道府県
           <span class="indispensable">必須</span>
@@ -33,7 +33,7 @@
         <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {selected: @post.prefecture_id}, {class:"prefecture-select"}) %>
       </div>
     <%# 市区町村 %>
-      <div class="post-outline">
+      <div class="post-city">
         <div class="weight-bold-text">
           市区町村
         </div>

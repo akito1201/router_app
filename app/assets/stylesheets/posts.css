@@ -132,8 +132,16 @@ body {
   width: 100%;
 }
 
+.post-city {
+  width: 40%;
+}
+
+.post-prefecture {
+  width: 20%;
+}
+
 .member-select {
-  width: 25%;
+  width: 15%;
   height: 30px;
   margin-bottom: 30px;
 }

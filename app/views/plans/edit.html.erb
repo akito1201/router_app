@@ -1,12 +1,25 @@
-<%= form_with(model: @plan, url: post_plan_path, method: :patch, local: true) do |f| %>
-  <div class="post-box">
-    記事を編集する
-    <%= f.text_area :place, class:"place",  placeholder:"場所" %>
-      <div class="click-upload">
-        <p>クリックしてファイルをアップロード</p>
-        <%= f.file_field :image, id:"item-image" %>
-      </div>
-      <%= f.text_area :text, class:"text",  placeholder:"テキスト" %>
-      <%= f.submit "入力完了" ,class:"btn" %>
+<div class="plan-form-wrapper">
+  <div class="plan-form-box">
+    <h3>SPOTを編集する</h3>
+
+    <div class="plan-list" id="first-plan">
+      <%= form_with(model: @plan, url: post_plans_path(params[:post_id]), method: :post, local: true, class:"plan-lists", id: "form") do |f| %>
+        <div class="weight-bold-text">
+          SPOT名
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :place, class:"plan-place", placeholder:"入力してください" %>
+        <div class="weight-bold-text">
+          about
+          <span class="indispensable">必須</span>
+        </div>
+        <%= f.text_area :text, class:"plan-text", placeholder:"SPOTの概要やおすすめポイントなど" %> 
+        <div class="plan-upload">
+          <p>クリックしてファイルをアップロード（任意）</p>
+          <%= f.file_field :image, id:"item-image" %>
+        </div>
+        <%= f.submit "入力完了", class:"submit", id:"submit" %>
+      <% end %>
+    </div>
   </div>
-<% end %>
+</div>

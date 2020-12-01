@@ -1,4 +1,5 @@
 class PlansController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_post_plan, only: [:new, :edit]
 
   def new
@@ -32,8 +33,12 @@ class PlansController < ApplicationController
 
   def destroy
     plan = Plan.find_by(post_id: params[:post_id], id: params[:id])
-    plan.destroy
-    redirect_to "/posts/#{params[:post_id]}"
+    if current_user.id == plan.post.user_id
+      plan.destroy
+      redirect_to "/posts/#{params[:post_id]}"
+    else
+      redirect_to root_path
+    end
   end
 
 

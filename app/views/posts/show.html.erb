@@ -42,8 +42,10 @@
 
       <% @plans.each do |plan| %>
       <div class="posts">
-          <%= link_to "編集", "/posts/#{@post.id}/plans/#{plan.id}/edit" %>
-          <%= link_to "削除", "/posts/#{@post.id}/plans/#{plan.id}", method: :delete %>
+          <% if current_user.id == @post.user_id %>
+            <%= link_to "編集", "/posts/#{@post.id}/plans/#{plan.id}/edit", class:"edit-destroy-btn" %>
+            <%= link_to "削除", "/posts/#{@post.id}/plans/#{plan.id}", method: :delete, class:"edit-destroy-btn" %>
+          <% end %>
           <div class="content">
             <p class="content-name">SPOT</p>
             <%= plan.place %>
@@ -59,9 +61,11 @@
           <% end %>
         </div>
       <% end %>
-      <div class="add-box">
-      <%= link_to "＋ スポットを追加する", new_post_plan_path(@post), class:"add-plan add-show" %>
+      <% if current_user.id == @post.user_id %>
+        <div class="add-box">
+        <%= link_to "＋ スポットを追加する", new_post_plan_path(@post), class:"add-plan add-show" %>
       </div>
+      <% end %>
     </div>
   </div>
 </div>

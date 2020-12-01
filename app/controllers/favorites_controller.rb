@@ -1,4 +1,5 @@
 class FavoritesController < ApplicationController
+  before_action :authenticate_user!
   def check
     favorite = Favorite.find_by(post_id: params[:post_id], user_id: current_user.id)
     if favorite.present?

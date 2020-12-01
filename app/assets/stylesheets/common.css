@@ -39,6 +39,10 @@ header {
   background: rgba(255,255,255, 1);
 }
 
+.hot-routes {
+  margin-right: 20px;
+}
+
 .favorite-list {
   margin-left:20px;
   color: black;
