@@ -1,5 +1,5 @@
 .add-plan {
-  background-color: lightsalmon;
+  background-color: #005500;
   text-align: center;
   margin: 20px auto;
   padding:10px;
@@ -9,7 +9,7 @@
 }
 
 .add-plan:hover {
-opacity: 0.8;
+  background-color: green;
 }
 
 .plan-lists {
@@ -17,7 +17,6 @@ opacity: 0.8;
   flex-direction: column;
   justify-content: space-between;
   margin: 30px;
-  border: solid 5px cornflowerblue;
 }
 
 .plan-list {
@@ -27,12 +26,15 @@ opacity: 0.8;
 
 .submit {
   padding: 10px;
-  background-color: cornflowerblue;
+  background-color: darkgray;
   color: white;
   border-radius: 30px;
   margin: 15px auto;
   width: 150px;
+}
 
+.submit:hover {
+  background-color: lightgray;
 }
 
 .indispensable {
@@ -51,3 +53,56 @@ opacity: 0.8;
   margin-bottom: 10px;
 }
 
+.plan-form-wrapper {
+  width: 100%;
+  height: 100%;
+}
+
+.plan-form-box {
+  width: 80vw;
+  margin: 50px auto;
+  text-align: center;
+  background: rgba(45,45,45, 0.8);
+  color: white;
+  height: 100%;
+  padding: 30px 0;
+}
+
+.plan-form-box h3 {
+  font-size: 25px;
+}
+
+.plan-text {
+  height: 200px;
+}
+
+.plan-upload {
+  margin: 30px 0;
+}
+
+.plan-image {
+  width: 60%;
+  height: 60%;
+  margin: 0 auto;
+}
+
+.add-box {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #005500;
+  padding:10px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+
+}
+
+.add-show {
+  color: white;
+
+}
+
+.add-box:hover {
+  background-color: green;
+
+}

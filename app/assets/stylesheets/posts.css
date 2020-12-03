@@ -3,42 +3,53 @@
   flex-direction: column;
 }
 
-.routes-wrapper {
+body {
     background-image:url('travel.jpg');
-    height: 1000px;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 }
 
+.post {
+  text-align: center;
 
+}
 
 .posts-wrapper {
   text-align: center;
+  background: rgba(45,45,45, 0.9);
+  
 }
 
 .content {
   display: flex;
   padding-left: 30px;
   margin: 5px 0;
-  color: cornflowerblue;
+  color: white;
+  align-items: center;
 }
 
 .content-name {
   background-color: cadetblue;
-  border-radius: 10px;
   color: white;
   padding: 5px 20px;
-  margin-right: 8px;
+  margin: 10px 20px 15px 0;
   box-shadow: 0 0 8px gray;
+  width: 9%;
 }
 
 .posts {
-  width: 50%;
-  padding: 20px 0;
-  margin-left: 50px;
-  margin-bottom: 20px;
-  background-color: lightgray;
-  border-radius: 30px;
-  box-shadow: 0 0 8px gray;
-}
+    width: 80vw;
+    margin: 50px auto;
+    text-align: center;
+    background: rgba(45,45,45, 0.9);
+    color: white;
+    height: 100%;
+    padding: 30px 0 20px;
+    box-shadow: 0 0 8px gray;
+  }
+
 
 .details {
   text-align: center;
@@ -47,6 +58,7 @@
 .post-nickname {
   text-align: center;
   color: white;
+  margin-top: 20px;
 }
 
 .details {
@@ -57,4 +69,98 @@
   background-color: whitesmoke;
   border-radius: 30px;
   box-shadow: 0 0 8px gray;
+}
+
+.favorite-count {
+  background-color: orange;
+  border-radius: 20px;
+  width:15%;
+}
+
+
+.posts-wrapper {
+  width: 20%;
+  margin: 20px auto;
+  color: white;
+  padding: 5px 0;
+}
+
+.form-wrapper {
+  width: 100%;
+  height: 680px;
+}
+
+.form-box {
+  width: 80vw;
+  margin: 50px auto;
+  text-align: center;
+  background: rgba(45,45,45, 0.8);
+  color: white;
+  height: 100%;
+  padding: 30px 0;
+}
+
+.weight-bold-text {
+  margin-top: 20px;
+}
+
+.form-title{
+  width: 90%;
+  height: 30px;
+}
+
+.form-outline {
+  width: 90%;
+  height: 110px;
+}
+
+.region {
+  display: flex;
+  margin: 0 auto;
+  width: 100%;
+  justify-content: space-around;
+
+}
+
+.prefecture-select {
+  width: 100%;
+  height: 30px;
+}
+
+.form-city {
+  height: 30px;
+  width: 100%;
+}
+
+.post-city {
+  width: 40%;
+}
+
+.post-prefecture {
+  width: 20%;
+}
+
+.member-select {
+  width: 15%;
+  height: 30px;
+  margin-bottom: 30px;
+}
+
+.post-box h3 {
+  font-size: 25px;
+}
+
+.edit-destroy-btn {
+  color: white;
+  padding: 3px;
+  border: 1px solid white;
+  margin: 0 5px;
+}
+
+.edit-destroy-btn:hover {
+  background-color: lightgray;
+}
+
+.edit-destroy {
+  padding-bottom: 20px;
 }

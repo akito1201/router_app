@@ -1,13 +1,14 @@
 class PlansController < ApplicationController
-  before_action :set_post, only: [:new, :edit]
+  before_action :authenticate_user!
+  before_action :set_post_plan, only: [:new, :edit]
 
   def new
-    @plans = Plan.where(post_id: @post.id)
+    @plans = Plan.where(post_id: params[:post_id])
     @plan = Plan.new
   end
 
   def create
-    plan = Plan.create(plan_params)
+    plan = Plan.new(plan_params)
     if plan.valid?
       plan.save
       redirect_to root_path
@@ -30,14 +31,23 @@ class PlansController < ApplicationController
     end
   end
 
+  def destroy
+    plan = Plan.find_by(post_id: params[:post_id], id: params[:id])
+    if current_user.id == plan.post.user_id
+      plan.destroy
+      redirect_to "/posts/#{params[:post_id]}"
+    else
+      redirect_to root_path
+    end
+  end
+
   private
 
   def plan_params
     params.require(:plan).permit(:text, :place, :image).merge(post_id: params[:post_id])
   end
 
-  def set_post
+  def set_post_plan
     @post = Post.find(params[:post_id])
   end
-
 end

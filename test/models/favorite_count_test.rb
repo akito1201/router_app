@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TransportationTest < ActiveSupport::TestCase
+class FavoriteCountTest < ActiveSupport::TestCase
   # test "the truth" do
   #   assert true
   # end

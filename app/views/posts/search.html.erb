@@ -1,7 +1,7 @@
 <div class="routes-wrapper">
   <div class="route-contents">
     <div class="posts-wrapper">
-      <h1><%= @user.nickname %>'s SPOT</h1>
+      <h1>検索結果</h1>
     </div>
     <% @posts.each do |post|%>
       <%= link_to post_path(post.id) do %>
@@ -16,6 +16,10 @@
           <div class="content">
             <p class="content-name">title</p>
             <%= post.title %>
+          </div>
+          <div class="content">
+            <p class="content-name">about</p>
+            <%= post.outline %>
           </div>
           <div class="content">
             <p class="content-name">area</p>
@@ -33,6 +37,6 @@
       </div>
     </div>
     <% end %>
-  <% end %>
+    <% end %>
 </div>
 </div>

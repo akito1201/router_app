@@ -1,17 +1,56 @@
+<div class="form-wrapper">
+<div class="form-box">
 <%= form_with(model: @post, local: true, id: "form") do |form| %>
   <div class="post-box">
-    記事を投稿する
+    <h3>記事を投稿する</h3>
 
 <%# Postsに保存 %>
-  <%= form.text_field :title, class:"title", placeholder:"タイトル", id: "forms" %>
-  <%= form.text_area :outline, class:"text", placeholder:"テキスト" %>
-  <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
-  <%= form.text_field :city, class:"city", placeholder:"市区町村" %>
-  <%= form.collection_select(:member_id, Member.all, :id, :name, {}, {class:"member-select"}) %>
-  <%= form.collection_select(:timing_id, Timing.all, :id, :name, {}, {class:"time-select"}) %>
-  <%= form.collection_select(:transportation_id, Transportation.all, :id, :name, {}, {class:"transportation-select"}) %>
+<%# タイトル %>
+    <div class="post-titile">
+      <div class="weight-bold-text">
+        タイトル
+        <span class="indispensable">必須</span>
+      </div>
+      <%= form.text_field :title, class:"title", placeholder:"タイトル", id: "forms", class: "form-title"%>
+    </div>
 
+    <%# 概要 %>
+    <div class="post-outline">
+      <div class="weight-bold-text">
+        ルート概要
+        <span class="indispensable">必須</span>
+      </div>
+      <%= form.text_area :outline, class:"form-outline", placeholder:"テキスト" %>
+    </div>
 
-    <%= form.submit "ルート入力へ" , id:"submit"%>
-  </div>
+    <div class="region">
+    <%# prefecture %>
+      <div class="post-prefecture">
+        <div class="weight-bold-text">
+          都道府県
+          <span class="indispensable">必須</span>
+        </div>
+        <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"prefecture-select"}) %>
+      </div>
+    <%# 市区町村 %>
+      <div class="post-city">
+        <div class="weight-bold-text">
+          市区町村
+        </div>
+        <%= form.text_area :city, class:"form-city", placeholder:"任意で記入" %>
+      </div>
+    </div>
+
+    <%# メンバー %>
+    <div class="form">
+      <div class="weight-bold-text">
+        メンバー
+        <span class="indispensable">必須</span>
+      </div>
+      <%= form.collection_select(:member_id, Member.all, :id, :name, {}, {class:"member-select"}) %>
+    </div>
+    <%= form.submit "ルート入力へ" , id:"submit", class:"submit"%>
+
   <% end %>
+  </div>
+</div>

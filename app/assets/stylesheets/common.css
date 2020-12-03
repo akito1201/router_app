@@ -1,27 +1,27 @@
 header {
-
   width: 100%;
   position: sticky;
   top:0;
-  height:10vh;
+  height:7vh;
   padding: 10px 20px 0px;
-  opacity: 0.9;
   z-index:999;
-  background-color: gray;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(45,45,45, 0.8);
+}
+
+.icon {
+  color: white;
+  width: 8%;
 }
 
 .fa-route {
-  font-size: 50px;
-  margin-bottom: 20px;
+  font-size: 30px;
   color: white;
   
 }
 
-.top-page-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
 
 .nav {
   display: flex;
@@ -36,12 +36,16 @@ header {
   background: rgba(255,255,255, 0.7);
   font-size: 15px;
   border-radius: 15px;
-  padding: 10px;
+  padding: 5px;
   box-shadow: 0 0 8px black;
 }
 
 .route-list:hover {
   background: rgba(255,255,255, 1);
+}
+
+.hot-routes {
+  margin-right: 20px;
 }
 
 .favorite-list {
@@ -50,7 +54,7 @@ header {
   background: rgba(255,255,255, 0.7);
   font-size: 15px;
   border-radius: 15px;
-  padding: 10px;
+  padding: 5px;
   box-shadow: 0 0 8px black;
 }
 
@@ -63,7 +67,7 @@ header {
   background: rgba(255,255,255, 0.7);
   font-size: 15px;
   border-radius: 15px;
-  padding: 10px;
+  padding: 5px;
   box-shadow: 0 0 8px black;
   margin-left: 20px;
 }
@@ -74,6 +78,7 @@ header {
 
 .lists-right {
   display: flex;
+  width:9%;
 }
 
 .header-button {
@@ -82,11 +87,35 @@ header {
   background: rgba(255,255,255, 0.7);
   font-size: 15px;
   border-radius: 15px;
-  padding: 10px;
+  padding: 5px;
   box-shadow: 0 0 8px black;
 }
 
 .header-button:hover {
   background: rgba(255,255,255, 1);
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select-pref p {
+  color:white;
+  font-size: 10px;
+}
+
+.search-prefecture {
+  height: 20px;
+  width: 80%;
+  margin-right: 20px;
+  font-size: 13px;
+  color: gray;
+}
+
+.search-btn {
+  margin-left: 20px;
+  box-shadow: 0 0 8px black;
 }
 

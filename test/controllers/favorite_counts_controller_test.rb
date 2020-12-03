@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class TimingTest < ActiveSupport::TestCase
+class FavoriteCountsControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end
