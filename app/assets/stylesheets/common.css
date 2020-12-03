@@ -11,6 +11,11 @@ header {
   background: rgba(45,45,45, 0.8);
 }
 
+.icon {
+  color: white;
+  width: 8%;
+}
+
 .fa-route {
   font-size: 30px;
   color: white;
@@ -73,6 +78,7 @@ header {
 
 .lists-right {
   display: flex;
+  width:9%;
 }
 
 .header-button {
@@ -87,5 +93,29 @@ header {
 
 .header-button:hover {
   background: rgba(255,255,255, 1);
+}
+
+.search-form {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.select-pref p {
+  color:white;
+  font-size: 10px;
+}
+
+.search-prefecture {
+  height: 20px;
+  width: 80%;
+  margin-right: 20px;
+  font-size: 13px;
+  color: gray;
+}
+
+.search-btn {
+  margin-left: 20px;
+  box-shadow: 0 0 8px black;
 }
 

@@ -14,12 +14,9 @@ class FavoritesController < ApplicationController
     post = Favorite.find_by(post_id: params[:post_id], user_id: current_user.id)
     count = Favorite.where(post_id: params[:post_id], checked: true).length
     render json: { post: post, count: count }
-    
-    
   end
 
   def index
     @favorites = Favorite.where(user_id: current_user.id, checked: true).includes(:post)
   end
-
 end

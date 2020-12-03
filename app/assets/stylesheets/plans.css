@@ -12,11 +12,6 @@
   background-color: green;
 }
 
-.add-show {
-  margin: 0 auto;
-  width: 50%;
-}
-
 .plan-lists {
   display: flex;
   flex-direction: column;
@@ -89,4 +84,25 @@
   width: 60%;
   height: 60%;
   margin: 0 auto;
+}
+
+.add-box {
+  width: 30%;
+  margin: 0 auto;
+  text-align: center;
+  background-color: #005500;
+  padding:10px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+
+}
+
+.add-show {
+  color: white;
+
+}
+
+.add-box:hover {
+  background-color: green;
+
 }

@@ -10,6 +10,9 @@ Rails.application.routes.draw do
 
   resources :posts  do
     resources :plans, only: [:new, :create, :edit, :update, :destroy]
+    collection do
+      get 'search'
+    end
   end
   resources :favorite_counts, only: :index
 

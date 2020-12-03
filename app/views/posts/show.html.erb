@@ -25,6 +25,10 @@
           <%= @post.title %>
         </div>
         <div class="content">
+          <p class="content-name">about</p>
+          <%= @post.outline %>
+        </div>
+        <div class="content">
           <p class="content-name">area</p>
           <%= @post.prefecture.name %>
           <%= @post.city %>
@@ -62,9 +66,11 @@
         </div>
       <% end %>
       <% if current_user.id == @post.user_id %>
-        <div class="add-box">
-        <%= link_to "＋ スポットを追加する", new_post_plan_path(@post), class:"add-plan add-show" %>
-      </div>
+        <div class="add">
+          <div class="add-box">
+            <%= link_to "＋ スポットを追加する", new_post_plan_path(@post), class:"add-show" %>
+          </div>
+        </div>
       <% end %>
     </div>
   </div>

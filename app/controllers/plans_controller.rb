@@ -41,7 +41,6 @@ class PlansController < ApplicationController
     end
   end
 
-
   private
 
   def plan_params
@@ -51,5 +50,4 @@ class PlansController < ApplicationController
   def set_post_plan
     @post = Post.find(params[:post_id])
   end
-
 end
