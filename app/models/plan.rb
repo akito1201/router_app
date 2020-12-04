@@ -8,8 +8,6 @@ class Plan < ApplicationRecord
   end
 
   def self.search(search)
-    if search != ''
-        Plan.where('place LIKE(?)', "%#{search}%")
-    end
+    Plan.where('place LIKE(?)', "%#{search}%") if search != ''
   end
 end
