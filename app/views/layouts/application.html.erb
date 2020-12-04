@@ -35,7 +35,7 @@
 
         <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
           <div class="select-pref">
-            <%= form.collection_select(:prefecture_id, Prefecture.all, :id, :name, {}, {class:"search-prefecture"}) %>
+            <%= form.collection_select(:pref, Prefecture.all, :name, :name, {}, {class:"search-prefecture"}) %>
           </div>
           <div class="search-text">
             <%= form.text_field :keyword, placeholder: "SPOTを検索する", class: "search-input" %>
