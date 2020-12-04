@@ -57,12 +57,12 @@ class PostsController < ApplicationController
       title = posts.search(params[:keyword], 1)
       city = posts.search(params[:keyword], 2)
       outline = posts.search(params[:keyword], 3)
-      @posts = title && city && outline
+      @posts = title + city + outline - (title && city && outline) + (title && city && outline)
     elsif pref == '--都道府県を選択--'
-      title = Post.search(params[:keyword], 1)
-      city = Post.search(params[:keyword], 2)
-      outline = Post.search(params[:keyword], 3)
-      @posts = title && city && outline
+      title = Post.search(keyword, 1)
+      city = Post.search(keyword, 2)
+      outline = Post.search(keyword, 3)
+      @posts = title + city + outline - (title && city && outline) + (title && city && outline)
     end
   end
 

@@ -6,4 +6,10 @@ class Plan < ApplicationRecord
     validates :text
     validates :place
   end
+
+  def self.search(search)
+    if search != ''
+        Plan.where('place LIKE(?)', "%#{search}%")
+    end
+  end
 end
