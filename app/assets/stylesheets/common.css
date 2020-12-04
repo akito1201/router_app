@@ -78,7 +78,7 @@ header {
 
 .lists-right {
   display: flex;
-  width:9%;
+  width:15%;
 }
 
 .header-button {
@@ -119,3 +119,6 @@ header {
   box-shadow: 0 0 8px black;
 }
 
+.sign-up {
+  width: 20%;
+}
