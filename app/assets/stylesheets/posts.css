@@ -4,7 +4,6 @@
 }
 
 body {
-    background-image: image-url('travel.png');
     background-image: url('travel.png');
     background-size: cover;
     background-position: center center;
