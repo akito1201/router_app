@@ -43,16 +43,17 @@
             <%= form.submit "検索", class: "search-btn" %>
         <% end %>
         </div>
-
+        
         <ul class='lists-right'>
           <% if user_signed_in? %>
-            <li><%= link_to current_user.nickname, "/users/#{current_user.id}/index", class: "header-button user-nickname" %></li>
+            <li><%= link_to current_user.nickname, "/users/#{current_user.id}/index", class: "header-button user-nickname" %></li>  
             <li><%= link_to 'logout', destroy_user_session_path, method: :delete, class: "header-button logout" %></li> 
           <% else %>
             <li><%= link_to 'login', new_user_session_path, class: "header-button login" %></li>
             <li><%= link_to '新規登録', new_user_registration_path, class: "header-button sign-up" %></li>
           <% end %>
         </ul>
+      
     </header>
     <%= yield %>
   </body>
