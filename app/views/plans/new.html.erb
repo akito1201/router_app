@@ -44,7 +44,7 @@
         <% if plan.image.attached? %>
           <div class="content">
             <p class="content-name">画像</p>
-            <%= image_tag plan.image, :size => '600x400' %>
+            <%= image_tag plan.image.variant(resize: '600x400') %>
           </div>
         <% end %>
       </div>

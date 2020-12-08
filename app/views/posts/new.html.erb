@@ -2,7 +2,7 @@
 <div class="form-box">
 <%= form_with(model: @post, local: true, id: "form") do |form| %>
   <div class="post-box">
-    <h3>記事を投稿する</h3>
+    <h3>SPOTを投稿する</h3>
 
 <%# Postsに保存 %>
 <%# タイトル %>
@@ -17,7 +17,7 @@
     <%# 概要 %>
     <div class="post-outline">
       <div class="weight-bold-text">
-        ルート概要
+        概要
         <span class="indispensable">必須</span>
       </div>
       <%= form.text_area :outline, class:"form-outline", placeholder:"テキスト" %>
@@ -49,7 +49,7 @@
       </div>
       <%= form.collection_select(:member_id, Member.all, :id, :name, {}, {class:"member-select"}) %>
     </div>
-    <%= form.submit "ルート入力へ" , id:"submit", class:"submit"%>
+    <%= form.submit "SPOT詳細入力へ" , id:"submit", class:"submit"%>
 
   <% end %>
   </div>
