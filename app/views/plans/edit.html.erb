@@ -3,7 +3,8 @@
     <h3>SPOTを編集する</h3>
 
     <div class="plan-list" id="first-plan">
-      <%= form_with(model: @plan, url: post_plans_path(params[:post_id]), method: :post, local: true, class:"plan-lists", id: "form") do |f| %>
+      <%= form_with(model: @plan, url: "/posts/#{params[:post_id]}/plans/#{@plan.id}", method: :patch, local: true, class:"plan-lists", id: "form") do |f| %>
+      <%= render 'shared/error_messages', model: @plan %>
         <div class="weight-bold-text">
           SPOT名
           <span class="indispensable">必須</span>
