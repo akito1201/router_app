@@ -5,6 +5,7 @@
 
   <div class="plan-list" id="first-plan">
     <%= form_with(model: @plan, url: post_plans_path(params[:post_id]), method: :post, local: true, class:"plan-lists", id: "form") do |f| %>
+    <%= render 'shared/error_messages', model: @plan %>
       <div class="weight-bold-text">
         SPOT名
         <span class="indispensable">必須</span>
@@ -31,6 +32,7 @@
 </div>
 
   <div class="plan-list">
+    <% if @plans.present? %>
     <% @plans.each do |plan| %>
       <div class="posts">
         <div class="content">
@@ -48,6 +50,7 @@
           </div>
         <% end %>
       </div>
+    <% end %>
     <% end %>
   </div>
 </div>

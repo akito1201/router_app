@@ -4,7 +4,7 @@
       <% if current_user.id == @post.user_id %>
         <div class="edit_destroy">
           <%= link_to "編集", edit_post_path(@post), class:"edit-destroy-btn" %>
-          <%= link_to "削除", post_path(@post), method: :delete, class:"edit-destroy-btn" %>
+          <%= link_to "削除", post_path(@post), method: :delete, data: {confirm: "削除しますか？"}, class:"edit-destroy-btn", name:"post[delete]"%>
         </div>
       <% else %>
         <% if @favorite == true %>
@@ -48,7 +48,7 @@
       <div class="posts">
           <% if current_user.id == @post.user_id %>
             <%= link_to "編集", "/posts/#{@post.id}/plans/#{plan.id}/edit", class:"edit-destroy-btn" %>
-            <%= link_to "削除", "/posts/#{@post.id}/plans/#{plan.id}", method: :delete, class:"edit-destroy-btn" %>
+            <%= link_to "削除", "/posts/#{@post.id}/plans/#{plan.id}", method: :delete, data: {confirm: "削除しますか？"}, class:"edit-destroy-btn" %>
           <% end %>
           <div class="content">
             <p class="content-name">SPOT</p>

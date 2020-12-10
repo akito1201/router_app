@@ -1,0 +1,13 @@
+ja:
+ activerecord:
+   attributes:
+     user:
+       nickname: ニックネーム
+     post:
+       title: タイトル
+       outline: 概要
+       member_id: メンバー
+       prefecture_id: 都道府県
+     plan:
+       text: SPOT名
+       place: about
