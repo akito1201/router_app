@@ -4,9 +4,9 @@
 }
 
 body {
-    background-image: url('travel.png');
-    background-size: cover;
-    background-position: center center;
+  background-image: url('travel.png');
+  background-size: cover;
+  background-position: center center;
     background-repeat: no-repeat;
     background-attachment: fixed;
 }
@@ -19,8 +19,8 @@ body {
 .posts-wrapper {
   text-align: center;
   background: rgba(45,45,45, 0.9);
-  
 }
+  
 
 .content {
   display: flex;
@@ -163,4 +163,8 @@ body {
 
 .edit-destroy {
   padding-bottom: 20px;
+}
+
+.post-about {
+  text-align: left;
 }

@@ -4,6 +4,7 @@
       <h1>HOT SPOT一覧</h1>
     </div>
     <% @favorite_counts.each do |fc|%>
+      <% if fc.count > 0 %>
       <%= link_to post_path(fc.post_id) do %>
       <div class="posts">
         <div class= "post">
@@ -31,6 +32,7 @@
       </div>
     </div>
     <% end %>
+  <% end %>
   <% end %>
 </div>
 </div>

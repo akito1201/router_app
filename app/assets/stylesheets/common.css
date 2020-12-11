@@ -76,10 +76,6 @@ header {
   background: rgba(255,255,255, 1);
 }
 
-.lists-right {
-  display: flex;
-  width:15%;
-}
 
 .header-button {
   margin-left:20px;
@@ -122,3 +118,15 @@ header {
 .sign-up {
   width: 20%;
 }
+
+
+.lists-right {
+  display: flex;
+  width:15%;
+}
+
+
+.field_with_errors {
+  display: contents;
+}
+

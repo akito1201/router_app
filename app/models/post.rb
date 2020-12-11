@@ -2,7 +2,7 @@ class Post < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :prefecture
   belongs_to :member
-  has_many :favorite_counts
+  has_many :favorite_counts, dependent: :destroy
 
   belongs_to :user
   has_many :favorites, dependent: :destroy
@@ -13,7 +13,7 @@ class Post < ApplicationRecord
     validates :outline
   end
 
-  with_options presence: true, numericality: { other_than: 1 } do
+  with_options presence: true, numericality: { other_than: 1, message: 'を選択してください' } do
     validates :prefecture_id
     validates :member_id
   end

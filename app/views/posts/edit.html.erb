@@ -1,6 +1,7 @@
 <div class="form-wrapper">
 <div class="form-box">
 <%= form_with(model: @post, local: true, id: "form") do |form| %>
+<%= render 'shared/error_messages', model: @post %>
   <div class="post-box">
     <h3>記事を編集する</h3>
 

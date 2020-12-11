@@ -11,7 +11,7 @@
         <% if favorite.post.favorite_counts.count >= 1 %>
         <div class="content">
           <p class="content-name favorite-count">お気に入り登録数</p>
-          <%= favorite.post.favorite_counts.count %>
+          <%= favorite.post.favorite_counts[0]['count'] %>
         </div>
         <% end %>
         <div class="content">
