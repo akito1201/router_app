@@ -26,7 +26,7 @@
         </div>
         <div class="content">
           <p class="content-name">about</p>
-          <%= @post.outline %>
+          <p class="post-about"><%= @post.outline %></p>
         </div>
         <div class="content">
           <p class="content-name">area</p>
@@ -56,7 +56,7 @@
           </div>
           <div class="content">
             <p class="content-name">about</p>
-            <%= plan.text %>
+            <p class="post-about"><%= plan.text %></p>
           </div>
           <% if plan.image.attached? %>
             <div class="image-content">

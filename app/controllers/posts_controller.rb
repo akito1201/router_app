@@ -52,17 +52,45 @@ class PostsController < ApplicationController
     keyword = params[:keyword]
     redirect_to root_path if keyword == '' && pref == '--都道府県を選択--'
     prefecture = Prefecture.find_by(name: params[:pref])
+    # 都道府県を選択している場合
     if pref != '--都道府県を選択--'
+      # Postのカラム検索
       posts = Post.where(prefecture_id: prefecture.id)
       title = posts.search(params[:keyword], 1)
       city = posts.search(params[:keyword], 2)
       outline = posts.search(params[:keyword], 3)
       @posts = title + city + outline - (title && city && outline) + (title && city && outline)
+      # Planのカラム検索
+      place = Plan.search(params[:keyword], 1)
+      places = posts.where(id: place[0].post_id..place[place.length - 1].post_id) if place.present?
+      text = Plan.search(params[:keyword], 2)
+      texts = posts.where(id: text[0].post_id..text[text.length - 1].post_id) if text.present?
+      if place.present? && text.present?
+        @posts += texts + places - (texts && places) + (texts && places)
+      elsif place.present?
+        @posts += places
+      elsif text.present?
+        @posts += texts
+      end
+    # 都道府県を選択していない場合
     elsif pref == '--都道府県を選択--'
+      # Postのカラム検索
       title = Post.search(keyword, 1)
       city = Post.search(keyword, 2)
       outline = Post.search(keyword, 3)
       @posts = title + city + outline - (title && city && outline) + (title && city && outline)
+      # Planのカラム検索
+      place = Plan.search(params[:keyword], 1)
+      places = Post.where(id: place[0].post_id..place[place.length - 1].post_id) if place.present?
+      text = Plan.search(params[:keyword], 2)
+      texts = Post.where(id: text[0].post_id..text[text.length - 1].post_id) if text.present?
+      if place.present? && text.present?
+        @posts += texts + places - (texts && places) + (texts && places)
+      elsif place.present?
+        @posts += places
+      elsif text.present?
+        @posts += texts
+      end
     end
   end
 

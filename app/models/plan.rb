@@ -7,7 +7,13 @@ class Plan < ApplicationRecord
     validates :place
   end
 
-  def self.search(search)
-    Plan.where('place LIKE(?)', "%#{search}%") if search != ''
+  def self.search(search, num)
+    if search != ''
+      if num == 1
+        Plan.where('place LIKE(?)', "%#{search}%")
+      elsif num == 2
+        Plan.where('text LIKE(?)', "%#{search}%")
+      end
+    end
   end
 end

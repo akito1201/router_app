@@ -7,14 +7,13 @@ class Post < ApplicationRecord
   belongs_to :user
   has_many :favorites, dependent: :destroy
   has_many :plans, dependent: :destroy
-  
 
   with_options presence: true do
     validates :title
     validates :outline
   end
 
-  with_options presence: true, numericality: { other_than: 1, message: 'を選択してください'}  do
+  with_options presence: true, numericality: { other_than: 1, message: 'を選択してください' } do
     validates :prefecture_id
     validates :member_id
   end

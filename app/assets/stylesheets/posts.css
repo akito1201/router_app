@@ -164,3 +164,7 @@ body {
 .edit-destroy {
   padding-bottom: 20px;
 }
+
+.post-about {
+  text-align: left;
+}
