@@ -8,27 +8,27 @@ RSpec.describe Plan, type: :model do
 
     describe 'plan情報' do
       context 'planの保存ができる場合' do
-      it '必要な情報が全て存在すれば保存できること' do
-        expect(@plan).to be_valid
-      end
-      it '画像は空でも保存できること' do
-        expect(@plan).to be_valid
-      end
-    end
-
-    context 'planの保存ができない場合' do
-      it 'placeの情報が空だと保存できない' do
-        @plan.place = nil
-        @plan.valid?
-        expect(@plan.errors.full_messages).to include("Place can't be blank")
+        it '必要な情報が全て存在すれば保存できること' do
+          expect(@plan).to be_valid
+        end
+        it '画像は空でも保存できること' do
+          expect(@plan).to be_valid
+        end
       end
 
-      it 'textの情報が空だと保存できない' do
-        @plan.text = nil
-        @plan.valid?
-        expect(@plan.errors.full_messages).to include("Text can't be blank")
+      context 'planの保存ができない場合' do
+        it 'placeの情報が空だと保存できない' do
+          @plan.place = nil
+          @plan.valid?
+          expect(@plan.errors.full_messages).to include("Place can't be blank")
+        end
+
+        it 'textの情報が空だと保存できない' do
+          @plan.text = nil
+          @plan.valid?
+          expect(@plan.errors.full_messages).to include("Text can't be blank")
+        end
       end
     end
-  end
   end
 end

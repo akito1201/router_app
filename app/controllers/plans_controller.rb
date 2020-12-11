@@ -1,6 +1,6 @@
 class PlansController < ApplicationController
   before_action :authenticate_user!
-  before_action :set_post_plan, only: [:new, :edit, :update]
+  before_action :set_post_plan, only: [:new, :create, :edit, :update]
 
   def new
     @plans = Plan.where(post_id: params[:post_id])
@@ -11,7 +11,7 @@ class PlansController < ApplicationController
     @plan = Plan.new(plan_params)
     if @plan.valid?
       @plan.save
-      redirect_to root_path
+      redirect_to post_path(@post)
     else
       render :new
     end

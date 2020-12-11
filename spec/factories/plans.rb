@@ -1,6 +1,6 @@
 FactoryBot.define do
   factory :plan do
-    place {Faker::Lorem.sentence}
+    place { Faker::Lorem.sentence }
     text { Faker::Lorem.sentence }
     association :post
 
