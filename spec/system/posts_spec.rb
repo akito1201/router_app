@@ -209,7 +209,7 @@ RSpec.describe 'post削除', type: :system do
       # 投稿を削除するとレコードの数が1減ることを確認する
       expect(Post.count).to eq 2
       page.accept_confirm do
-          find_link('削除', href: post_path(@post1)).click
+        find_link('削除', href: post_path(@post1)).click
       end
       expect(current_path).to eq root_path
       expect(Post.count).to eq 1
@@ -229,7 +229,7 @@ RSpec.describe 'post削除', type: :system do
       expect(current_path).to eq root_path
       # post2に「削除」ボタンが無いことを確認する
       visit post_path(@post2)
-      expect(page).to have_no_content("削除")
+      expect(page).to have_no_content('削除')
     end
   end
 end
@@ -238,8 +238,8 @@ RSpec.describe 'plan削除', type: :system do
   before do
     @post1 = FactoryBot.create(:post)
     @post2 = FactoryBot.create(:post)
-    @plan1 = Plan.create(place: "plan1", text: "plan1", post_id: @post1.id)
-    @plan2 = Plan.create(place: "plan2", text: "plan2", post_id: @post2.id)
+    @plan1 = Plan.create(place: 'plan1', text: 'plan1', post_id: @post1.id)
+    @plan2 = Plan.create(place: 'plan2', text: 'plan2', post_id: @post2.id)
     # @plan2 = FactoryBot.create(:plan, post_id: 2)
   end
   context 'plan削除ができるとき' do
@@ -257,7 +257,7 @@ RSpec.describe 'plan削除', type: :system do
       # 投稿を削除するとレコードの数が1減ることを確認する
       expect(Plan.count).to eq 2
       page.accept_confirm do
-          find_link('削除', href: "/posts/#{@plan1.post_id}/plans/#{@plan1.id}").click
+        find_link('削除', href: "/posts/#{@plan1.post_id}/plans/#{@plan1.id}").click
       end
       expect(current_path).to eq post_path(@plan1.post_id)
       expect(Plan.count).to eq 1
@@ -278,7 +278,7 @@ RSpec.describe 'plan削除', type: :system do
       expect(current_path).to eq root_path
       # plan2に「削除」ボタンが無いことを確認する
       visit post_path(@post2)
-      expect(page).to have_no_content("削除")
+      expect(page).to have_no_content('削除')
     end
   end
 end
