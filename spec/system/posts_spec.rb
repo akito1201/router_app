@@ -38,7 +38,7 @@ RSpec.describe 'SPOT投稿', type: :system do
         find('input[value="投稿する"]').click
       end.to change { Plan.count }.by(1)
       # トップページに遷移していることを確認する
-      expect(current_path).to eq root_path
+      expect(current_path).to eq post_path(1)
       # トップページには先ほど投稿した内容のSPOTが存在することを確認する
       expect(page).to have_content(@post.title)
       expect(page).to have_content(@post.outline)
@@ -207,28 +207,78 @@ RSpec.describe 'post削除', type: :system do
       # plan1に「削除」ボタンがあることを確認する
       expect(page).to have_content('削除')
       # 投稿を削除するとレコードの数が1減ることを確認する
+      expect(Post.count).to eq 2
       page.accept_confirm do
-        expect do
-          # find('a[name="post[delete]"]').click
           find_link('削除', href: post_path(@post1)).click
-        end.to change { Post.count }.by(-1)
       end
-      # 削除完了画面に遷移したことを確認する
-      # 「削除が完了しました」の文字があることを確認する
-      # トップページに遷移する
-      # トップページにはpost1の内容が存在しないことを確認する（画像）
-      # トップページにはpost1の内容が存在しないことを確認する（テキスト）
+      expect(current_path).to eq root_path
+      expect(Post.count).to eq 1
+      # トップページにはpost1の内容が存在しないことを確認する（タイトル）
+      expect(page).to have_no_content(@post1.title)
+      # トップページにはpost1の内容が存在しないことを確認する（概要）
+      expect(page).to have_no_content(@post1.outline)
     end
   end
-  # context 'post削除ができないとき' do
-  #   it 'ログインしたユーザーは自分以外が投稿したpostの削除ができない' do
-  #     # post1を投稿したユーザーでログインする
-  #     # post2に「削除」ボタンが無いことを確認する
-  #   end
-  #   it 'ログインしていないとpostの削除ボタンがない' do
-  #     # トップページに移動する
-  #     # post1に「削除」ボタンが無いことを確認する
-  #     # post2に「削除」ボタンが無いことを確認する
-  #   end
-  # end
+  context 'post削除ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿したpostの削除ができない' do
+      # post1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'user[email]', with: @post1.user.email
+      fill_in 'user[password]', with: @post1.user.password
+      find('input[value="Log in"]').click
+      expect(current_path).to eq root_path
+      # post2に「削除」ボタンが無いことを確認する
+      visit post_path(@post2)
+      expect(page).to have_no_content("削除")
+    end
+  end
+end
+
+RSpec.describe 'plan削除', type: :system do
+  before do
+    @post1 = FactoryBot.create(:post)
+    @post2 = FactoryBot.create(:post)
+    @plan1 = Plan.create(place: "plan1", text: "plan1", post_id: @post1.id)
+    @plan2 = Plan.create(place: "plan2", text: "plan2", post_id: @post2.id)
+    # @plan2 = FactoryBot.create(:plan, post_id: 2)
+  end
+  context 'plan削除ができるとき' do
+    it 'ログインしたユーザーは自らが投稿したplanの削除ができる' do
+      # plan1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'user[email]', with: @post1.user.email
+      fill_in 'user[password]', with: @post1.user.password
+      find('input[value="Log in"]').click
+      expect(current_path).to eq root_path
+      # plan1の詳細画面へ移動する
+      visit post_path(@plan1.post_id)
+      # plan1に「削除」ボタンがあることを確認する
+      expect(page).to have_content('削除')
+      # 投稿を削除するとレコードの数が1減ることを確認する
+      expect(Plan.count).to eq 2
+      page.accept_confirm do
+          find_link('削除', href: "/posts/#{@plan1.post_id}/plans/#{@plan1.id}").click
+      end
+      expect(current_path).to eq post_path(@plan1.post_id)
+      expect(Plan.count).to eq 1
+      # トップページにはpost1の内容が存在しないことを確認する（タイトル）
+      visit post_path(@plan1.post_id)
+      expect(page).to have_no_content(@plan1.place)
+      # トップページにはpost1の内容が存在しないことを確認する（概要）
+      expect(page).to have_no_content(@plan1.text)
+    end
+  end
+  context 'post削除ができないとき' do
+    it 'ログインしたユーザーは自分以外が投稿したpostの削除ができない' do
+      # plan1を投稿したユーザーでログインする
+      visit new_user_session_path
+      fill_in 'user[email]', with: @post1.user.email
+      fill_in 'user[password]', with: @post1.user.password
+      find('input[value="Log in"]').click
+      expect(current_path).to eq root_path
+      # plan2に「削除」ボタンが無いことを確認する
+      visit post_path(@post2)
+      expect(page).to have_no_content("削除")
+    end
+  end
 end
