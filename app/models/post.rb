@@ -8,6 +8,7 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :plans, dependent: :destroy
 
+  
   with_options presence: true do
     validates :title
     validates :outline
