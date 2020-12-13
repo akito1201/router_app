@@ -1,6 +1,8 @@
 # MySpot
 ![_M](https://user-images.githubusercontent.com/73152774/102006195-8f961880-3d62-11eb-8029-abc78a28167e.png)
-![669e89cd446e26e61dad4f6a07cf2abd (1)](https://user-images.githubusercontent.com/73152774/102006507-f74d6300-3d64-11eb-8d89-1a3480b093cd.gif)
+
+![669e89cd446e26e61dad4f6a07cf2abd (1)](https://user-images.githubusercontent.com/73152774/102006562-6d51ca00-3d65-11eb-8351-3789863021c0.gif)
+
 
 
 ## Description
