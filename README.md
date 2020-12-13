@@ -1,6 +1,7 @@
 # MySpot
 ![_M](https://user-images.githubusercontent.com/73152774/102006195-8f961880-3d62-11eb-8029-abc78a28167e.png)
-<img width="1680" alt="スクリーンショット 2020-12-13 15 57 31" src="https://user-images.githubusercontent.com/73152774/102005423-054ab600-3d5c-11eb-99c2-cc2c5ba1876b.png">
+![669e89cd446e26e61dad4f6a07cf2abd (1)](https://user-images.githubusercontent.com/73152774/102006507-f74d6300-3d64-11eb-8d89-1a3480b093cd.gif)
+
 
 ## Description
   休日のお出かけプランを立てるのに困ったことはありませんか？MySpotは、ユーザーがおすすめのスポットを共有できるアプリケーションです。友人同士、家族での外出やデートなど、様々なシチュエーションに応じておすすめのスポットを共有し合い、参考にし合える場になることを期待しています。
