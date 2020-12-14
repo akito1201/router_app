@@ -1,7 +1,7 @@
 <div id="plan-wrapper" data-id=<%= params[:post_id] %>>
 <div class="plan-form-wrapper">
 <div class="plan-form-box">
-  <h3>SPOTを登録する</h3>
+  <h3>SPOT詳細を登録する</h3>
 
   <div class="plan-list" id="first-plan">
     <%= form_with(model: @plan, url: post_plans_path(params[:post_id]), method: :post, local: true, class:"plan-lists", id: "form") do |f| %>
