@@ -72,7 +72,7 @@ class PostsController < ApplicationController
       elsif text.present?
         @posts += texts
       end
-    # 都道府県を選択していない場合
+      # 都道府県を選択していない場合
     elsif pref == '--都道府県を選択--'
       # Postのカラム検索
       title = Post.search(keyword, 1)
