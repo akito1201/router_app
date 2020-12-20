@@ -69,8 +69,8 @@ SPOT詳細画面 → 「編集」押下 → SPOT編集画面へ遷移 → 投稿
 
 ### users テーブル
 
-| Column            | Type   | Options                   |
-| --------          | ------ | -----------               |
+| Column            | Type   |Options   |
+| --------          | ------ |-----------  |
 | email             | string | null: false, unique: true |
 | encrypted_password| string | null: false               |
 | nickname          | string | null: false, unique: true |
