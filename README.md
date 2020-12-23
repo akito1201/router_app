@@ -51,6 +51,8 @@ SPOT詳細画面 → 「編集」押下 → SPOT編集画面へ遷移 → 投稿
   MySQL, SequelPro
 ### インフラ
   AWS(EC2)
+### Webサーバー
+  nginx
 ### アプリケーションサーバ（本番環境）
   unicorn
 ### ソース管理
