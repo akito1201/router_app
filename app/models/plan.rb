@@ -1,5 +1,5 @@
 class Plan < ApplicationRecord
-  has_one_attached :image
+  has_rich_text :content
   belongs_to :post
 
   with_options presence: true do
