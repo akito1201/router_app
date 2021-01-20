@@ -44,7 +44,7 @@ class PlansController < ApplicationController
   private
 
   def plan_params
-    params.require(:plan).permit(:text, :place, :image).merge(post_id: params[:post_id])
+    params.require(:plan).permit(:content, :place).merge(post_id: params[:post_id])
   end
 
   def set_post_plan

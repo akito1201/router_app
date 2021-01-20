@@ -73,8 +73,24 @@
 }
 
 .plan-text {
-  height: 200px;
+  height: 100%;
+  background-color: #fff;
+  color: black;
+  text-align: left;
 }
+
+.trix-button-group {
+  background-color: #fff;
+}
+
+.trix-content {
+  text-align: left;
+}
+
+.attachment__caption {
+  display: none;
+}
+
 
 .plan-upload {
   margin: 30px 0;

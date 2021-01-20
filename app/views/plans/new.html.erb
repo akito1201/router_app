@@ -11,19 +11,14 @@
         <span class="indispensable">必須</span>
       </div>
       <%= f.text_area :place, class:"plan-place", placeholder:"入力してください" %>
-
       <div class="weight-bold-text">
         about
         <span class="indispensable">必須</span>
       </div>
-      <%= f.text_area :text, class:"plan-text", placeholder:"SPOTの概要やおすすめポイントなど" %> 
+      <%= f.rich_text_area :content, class:"plan-text", placeholder:"SPOTの概要やおすすめポイントなど" %> 
+      <%= f.submit "入力完了", class:"submit", id:"submit" %>
 
-      <div class="plan-upload">
-        <p>クリックしてファイルをアップロード（任意）</p>
-        <%= f.file_field :image, id:"item-image" %>
-      </div>
 
-      <%= f.submit "投稿する", class:"submit", id:"submit" %>
       <div class="add-plan" id="add-plan">＋ SPOTを追加する</div>
       </div>
 
@@ -33,24 +28,18 @@
 
   <div class="plan-list">
     <% if @plans.present? %>
-    <% @plans.each do |plan| %>
-      <div class="posts">
-        <div class="content">
-          <p class="content-name">SPOT</p>
-          <%= plan.place %>
-        </div>
-        <div class="content">
-          <p class="content-name">おすすめポイント</p>
-          <%= plan.text %>
-        </div>
-        <% if plan.image.attached? %>
+      <% @plans.each do |plan| %>
+        <div class="posts">
           <div class="content">
-            <p class="content-name">画像</p>
-            <%= image_tag plan.image.variant(resize: '600x400') %>
+            <p class="content-name">SPOT</p>
+            <%= plan.place %>
           </div>
-        <% end %>
-      </div>
-    <% end %>
+          <div class="content">
+            <p class="content-name">おすすめポイント</p>
+            <%= plan.content %>
+          </div>
+        </div>
+      <% end %>
     <% end %>
   </div>
 </div>
