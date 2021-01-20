@@ -56,13 +56,8 @@
           </div>
           <div class="content">
             <p class="content-name">about</p>
-            <p class="post-about"><%= plan.text %></p>
+            <p class="post-about"><%= plan.content %></p>
           </div>
-          <% if plan.image.attached? %>
-            <div class="image-content">
-              <%= image_tag plan.image.variant(resize: '600x400'), class:"plan-image" %>
-            </div>
-          <% end %>
         </div>
       <% end %>
       <% if current_user.id == @post.user_id %>
