@@ -3,7 +3,6 @@ class Plan < ApplicationRecord
   belongs_to :post
 
   with_options presence: true do
-    validates :text
     validates :place
   end
 
