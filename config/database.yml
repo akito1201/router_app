@@ -10,12 +10,11 @@
 #   https://dev.mysql.com/doc/refman/5.7/en/password-hashing.html
 #
 default: &default
-  adapter: postgresql
-  encoding: unicode
-  host: db
-  user: postgres
-  port: 5432
-  password: <%= ENV.fetch("DATABASE_PASSWORD") %>
+  adapter: mysql2
+  encoding: utf8
+  pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
+  username: root
+  password:
 
 development:
   <<: *default
@@ -50,7 +49,7 @@ test:
 production:
   <<: *default
   database: myspot_production
-  username: <%= Rails.application.credentials.dig(:aws, :DATABASE_USER) %>
-  password: <%= Rails.application.credentials.dig(:aws, :DATABASE_PASSWORD) %>
+  username: <%= Rails.application.credentials.dig(:db, :DATABASE_USER) %>
+  password: <%= Rails.application.credentials.dig(:db, :DATABASE_PASSWORD) %>
   host: <%= Rails.application.credentials.dig(:db, :DATABASE_HOST) %>
   
