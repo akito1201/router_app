@@ -14,6 +14,7 @@ phases:
       - IMAGE_TAG=${COMMIT_HASH:=latest}
   build:
     commands:
+      - echo Build start on `date`
       - echo Building the Docker image...
       # リポジトリの名前をタグにつけてdocker buildをする
       - docker build -t $REPOSITORY_NAME:latest .
@@ -21,17 +22,22 @@ phases:
       - docker tag $REPOSITORY_NAME:latest $REPOSITORY_URI/$REPOSITORY_NAME:$IMAGE_TAG
   post_build:
     commands:
+      - echo Build completed on `date`
       - echo Pushing the Docker image...
       # イメージをpushする
-      - docker push ${REPOSITORY_URI}/${REPOSITORY_NAME}:${IMAGE_TAG}
+      - docker push $REPOSITORY_URI:latest
+      - docker push $REPOSITORY_URI/$REPOSITORY_NAME:$IMAGE_TAG
       - echo Writing image definitions file...
+      - echo "[{\"name\":\"rails\",\"imageUri\":\"${REPOSITORY_URI}:${IMAGE_TAG}\"}]" > imagedefinitions.json
+
+
       # printfは入力データを整形して表示するコマンド
       # %s は文字列
-      - printf '{"ImageURI":"%s"}' ${REPOSITORY_URI}/${REPOSITORY_NAME}:${IMAGE_TAG} > imageDetail.json
+      #- printf '{"ImageURI":"%s"}' ${REPOSITORY_URI}/${REPOSITORY_NAME}:${IMAGE_TAG} > imageDetail.json
       #- envsubst < taskdef.template > taskdef.json
 
 artifacts:
-  files:
-    - imageDetail.json
+  files: imagedefinitions.json
+    #- imageDetail.json
     #- appspec.yaml
     #- taskdef.json
