@@ -17,7 +17,7 @@ phases:
       - echo Build start on `date`
       - echo Building the Docker image...
       # リポジトリの名前をタグにつけてdocker buildをする
-      - docker build -t ${REPOSITORY_NAME}:latest .
+      - docker build -t ${REPOSITORY_NAME}:latest -f Dockerfile.prod .
       # リポジトリ名がついたイメージに対し、push用の名前に置き換える
       - docker tag ${REPOSITORY_NAME}:latest ${REPOSITORY_URI}/${REPOSITORY_NAME}:${IMAGE_TAG}
   post_build:
