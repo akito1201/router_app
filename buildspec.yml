@@ -17,16 +17,16 @@ phases:
       - echo Build start on `date`
       - echo Building the Docker image...
       # リポジトリの名前をタグにつけてdocker buildをする
-      - docker build -t $REPOSITORY_NAME:latest .
+      - docker build -t ${REPOSITORY_NAME}:latest .
       # リポジトリ名がついたイメージに対し、push用の名前に置き換える
-      - docker tag $REPOSITORY_NAME:latest $REPOSITORY_URI/$REPOSITORY_NAME:$IMAGE_TAG
+      - docker tag ${REPOSITORY_NAME}:latest ${REPOSITORY_URI}/${REPOSITORY_NAME}:${IMAGE_TAG}
   post_build:
     commands:
       - echo Build completed on `date`
       - echo Pushing the Docker image...
       # イメージをpushする
-      - docker push $REPOSITORY_NAME:latest
-      - docker push $REPOSITORY_URI/$REPOSITORY_NAME:$IMAGE_TAG
+      #- docker push ${REPOSITORY_NAME}:latest
+      - docker push ${REPOSITORY_URI}/${REPOSITORY_NAME}:${IMAGE_TAG}
       - echo Writing image definitions file...
       - echo "[{\"name\":\"rails\",\"imageUri\":\"${REPOSITORY_URI}:${IMAGE_TAG}\"}]" > imagedefinitions.json
 
