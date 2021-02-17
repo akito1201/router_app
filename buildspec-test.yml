@@ -5,8 +5,7 @@ phases:
     commands:
       - echo Build started on `date`
       - docker-compose up -d db
-      - docker-compose exec web bash 
-      - bundle exec rspec spec/models/post_spec.rb
+      - docker-compose exec web rspec spec/models
   post_build:
     commands:
       - echo Build completed on `date`
