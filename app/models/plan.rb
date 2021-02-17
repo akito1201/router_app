@@ -4,6 +4,7 @@ class Plan < ApplicationRecord
 
   with_options presence: true do
     validates :place
+    validates :content
   end
 
   def self.search(search, num)
