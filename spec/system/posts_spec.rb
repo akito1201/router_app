@@ -30,12 +30,11 @@ RSpec.describe 'SPOT投稿', type: :system do
       end.to change { Post.count }.by(1)
       # SPOT詳細入力ページに遷移することを確認する
       expect(current_path).to eq '/posts/1/plans/new'
-      # 「投稿する」をクリックするとPlanモデルのカウントが1上がることを確認する
+      # 「入力完了」をクリックするとPlanモデルのカウントが1上がることを確認する
       fill_in 'plan[place]', with: @plan.place
-      fill_in 'plan[text]', with: @plan.text
-      # 「投稿する」をクリックするとPlanモデルのカウントが1上がることを確認する
+      fill_in_rich_text_area 'plan_content', with: @plan.content
       expect do
-        find('input[value="投稿する"]').click
+        find('input[value="入力完了"]').click
       end.to change { Plan.count }.by(1)
       # トップページに遷移していることを確認する
       expect(current_path).to eq post_path(1)
@@ -145,14 +144,16 @@ RSpec.describe 'plan編集', type: :system do
       visit "/posts/#{@plan1.post_id}/plans/#{@plan1.id}/edit"
       # すでに投稿済みの内容がフォームに入っていることを確認する
       expect(find('textarea[name="plan[place]"]').value).to have_content(@plan1.place)
-      expect(find('textarea[name="plan[text]"]').value).to have_content(@plan1.text)
+      #expect(find('input[name="plan[content]"]').value).to have_content(@plan1.content)
+      expect(page).to have_content(@plan1.place)
       # 投稿内容を編集する
       fill_in 'plan[place]', with: '編集したSPOT'
-      fill_in 'plan[text]', with: '編集したabout'
+      fill_in_rich_text_area 'plan_content', with: '編集したabout'
+
       # 編集してもPlanモデルのカウントは変わらないことを確認する
-      expect do
+      expect {
         find('input[value="入力完了"]').click
-      end.to change { Plan.count }.by(0)
+      }.to change { Plan.count }.by(0)
       # Post1の詳細画面に遷移したことを確認する
       expect(current_path).to eq post_path(@plan1.post)
       # 詳細画面には先ほど変更した内容のplanが存在することを確認する（SPOT）
@@ -207,12 +208,9 @@ RSpec.describe 'post削除', type: :system do
       # plan1に「削除」ボタンがあることを確認する
       expect(page).to have_content('削除')
       # 投稿を削除するとレコードの数が1減ることを確認する
-      expect(Post.count).to eq 2
-      page.accept_confirm do
-        find_link('削除', href: post_path(@post1)).click
-      end
-      expect(current_path).to eq root_path
-      expect(Post.count).to eq 1
+      expect {
+        find('a[name="post[delete]"]').click
+      }.to change { Post.count }.by(-1)
       # トップページにはpost1の内容が存在しないことを確認する（タイトル）
       expect(page).to have_no_content(@post1.title)
       # トップページにはpost1の内容が存在しないことを確認する（概要）
@@ -238,9 +236,8 @@ RSpec.describe 'plan削除', type: :system do
   before do
     @post1 = FactoryBot.create(:post)
     @post2 = FactoryBot.create(:post)
-    @plan1 = Plan.create(place: 'plan1', text: 'plan1', post_id: @post1.id)
-    @plan2 = Plan.create(place: 'plan2', text: 'plan2', post_id: @post2.id)
-    # @plan2 = FactoryBot.create(:plan, post_id: 2)
+    @plan1 = Plan.create(place: 'plan1', content: 'plan1', post_id: @post1.id)
+    @plan2 = Plan.create(place: 'plan2', content: 'plan2', post_id: @post2.id)
   end
   context 'plan削除ができるとき' do
     it 'ログインしたユーザーは自らが投稿したplanの削除ができる' do
@@ -255,17 +252,14 @@ RSpec.describe 'plan削除', type: :system do
       # plan1に「削除」ボタンがあることを確認する
       expect(page).to have_content('削除')
       # 投稿を削除するとレコードの数が1減ることを確認する
-      expect(Plan.count).to eq 2
-      page.accept_confirm do
-        find_link('削除', href: "/posts/#{@plan1.post_id}/plans/#{@plan1.id}").click
-      end
-      expect(current_path).to eq post_path(@plan1.post_id)
-      expect(Plan.count).to eq 1
+      expect {
+        find('a[name="plan[delete]"]').click
+      }.to change { Plan.count }.by(-1)
       # トップページにはpost1の内容が存在しないことを確認する（タイトル）
       visit post_path(@plan1.post_id)
       expect(page).to have_no_content(@plan1.place)
       # トップページにはpost1の内容が存在しないことを確認する（概要）
-      expect(page).to have_no_content(@plan1.text)
+      expect(page).to have_no_content(@plan1.content)
     end
   end
   context 'post削除ができないとき' do
