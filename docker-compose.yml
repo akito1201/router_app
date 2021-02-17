@@ -12,8 +12,7 @@ services:
     volumes:
       - '.:/myspot'
       - 'mysql-socket:/tmp/sockets'
-    command: bundle exec rails s -b '0.0.0.0'
-
+    command: sh -c "bundle exec rails db:migrate && bundle exec rails s -b 0.0.0.0"
     tty: true
     stdin_open: true
     depends_on:
