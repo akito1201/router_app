@@ -11,7 +11,7 @@ jobs:
         docker:
           - image: akito1201/myspot
           working_directory: /var/www/myspot
-            steps:
+          steps:
             - checkout
             - run:
               name: Docker Compose のインストール
