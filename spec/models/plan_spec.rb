@@ -11,9 +11,6 @@ RSpec.describe Plan, type: :model do
         it '必要な情報が全て存在すれば保存できること' do
           expect(@plan).to be_valid
         end
-        it '画像は空でも保存できること' do
-          expect(@plan).to be_valid
-        end
       end
 
       context 'planの保存ができない場合' do
@@ -24,9 +21,9 @@ RSpec.describe Plan, type: :model do
         end
 
         it 'textの情報が空だと保存できない' do
-          @plan.text = nil
+          @plan.content = nil
           @plan.valid?
-          expect(@plan.errors.full_messages).to include("Text can't be blank")
+          expect(@plan.errors.full_messages).to include("Content can't be blank")
         end
       end
     end
