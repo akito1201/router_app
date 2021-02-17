@@ -6,12 +6,25 @@ orbs:
     aws-ecr: circleci/aws-ecr@6.1.0
     aws-ecs: circleci/aws-ecs@0.0.8
 
+jobs:
+    test:
+        docker:
+            - image: circleci/golang:1.13
+        working_directory: /go/src/github.com/myname/mydirectory
+        steps:
+            - checkout
+            - run: go get -v -t -d ./...
+            - run: go test -v ./...
+
 workflows:
     # build_and_push_imageという名前のworkflowを定義
     build_and_push_image:
         # workflowで実行するjobの順番を定義
         jobs:
+        - test
         - aws-ecr/build-and-push-image:
+            requires:
+              - test
             region: AWS_REGION
             account-url: AWS_ECR_ACCOUNT_URL
             repo: 'myspot'
