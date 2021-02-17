@@ -9,12 +9,12 @@ orbs:
 jobs:
     test:
         docker:
-            - image: circleci/golang:1.13
-        working_directory: /go/src/github.com/myname/mydirectory
+            - image: akito1201/myspot
+        working_directory: /var/www/myspot
         steps:
             - checkout
-            - run: go get -v -t -d ./...
-            - run: go test -v ./...
+            - run: docker-compose up -d
+            - run: docker-compose exec web rspec spec/models
 
 workflows:
     # build_and_push_imageという名前のworkflowを定義
