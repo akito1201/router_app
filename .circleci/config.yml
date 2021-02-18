@@ -31,7 +31,7 @@ jobs:
          command: docker-compose up -d
       - run:
          name: RSpec
-         command: docker-compose run web bundle exec rspec spec/models 
+         command: docker-compose exec web bundle exec rspec spec/models 
       - run:
          name: docker-compose down
          command: docker-compose down
