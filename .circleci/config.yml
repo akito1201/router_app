@@ -25,13 +25,7 @@ jobs:
           docker-compose up --build -d
       - run:
          name: RSpec
-         command: |
-          mkdir /tmp/test-results
-          TEST_FILES="$(circleci tests glob 'spec/**/*_spec.rb' | circleci tests split --split-by=timings)"
-          docker-compose run web bundle exec rspec spec/models --format progress \
-                                                                  --format RspecJunitFormatter \
-                                                                  --out /tmp/test-results/rspec.xml \
-                                                                  $TEST_FILES
+         command: docker-compose run web bundle exec rspec spec/models 
       - run:
          name: docker-compose down
          command: docker-compose down
