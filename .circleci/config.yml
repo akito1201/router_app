@@ -7,9 +7,11 @@ orbs:
     aws-ecs: circleci/aws-ecs@0.0.8
 
 jobs:
-  test:
+  build:
     docker:
       - image: akito1201/myspot
+        environment:
+          - RAILS_ENV: "test"
     steps:
       - checkout
       - setup_remote_docker
@@ -30,8 +32,11 @@ jobs:
          name: docker-compose up again
          command: docker-compose up -d
       - run:
+         name: db接続を待機
+         command: sleep 10
+      - run:
          name: RSpec
-         command: docker-compose exec web bundle exec rspec spec/models 
+         command: docker-compose exec web bundle exec rspec spec/models RAILS_ENV=test
       - run:
          name: docker-compose down
          command: docker-compose down
@@ -41,10 +46,10 @@ workflows:
     build_and_push_image:
         # workflowで実行するjobの順番を定義
         jobs:
-        - test
+        - build
         - aws-ecr/build-and-push-image:
             requires:
-              - test
+              - build
             region: AWS_REGION
             account-url: AWS_ECR_ACCOUNT_URL
             repo: 'myspot'
