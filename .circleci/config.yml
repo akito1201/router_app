@@ -13,17 +13,28 @@ jobs:
     steps:
       - checkout
       - run:
-         name: Docker Compose のインストール
+         name: Install Docker Compose
          command: |
           curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
           chmod +x ~/docker-compose
           sudo mv ~/docker-compose /usr/local/bin/docker-compose
       - setup_remote_docker
       - run:
-         name: コンテナの起動とテスト
+         name: docker-compose up
          command: |
-          docker-compose up -d
-          docker-compose exec web rspec spec/models
+          docker-compose up --build -d
+      - run:
+         name: RSpec
+         command: |
+          mkdir /tmp/test-results
+          TEST_FILES="$(circleci tests glob 'spec/**/*_spec.rb' | circleci tests split --split-by=timings)"
+          docker-compose exec web rspec spec/models --format progress \
+                                                                  --format RspecJunitFormatter \
+                                                                  --out /tmp/test-results/rspec.xml \
+                                                                  $TEST_FILES
+      - run:
+         name: docker-compose down
+         command: docker-compose down
 
 workflows:
     # build_and_push_imageという名前のworkflowを定義
