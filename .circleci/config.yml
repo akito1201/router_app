@@ -24,6 +24,12 @@ jobs:
          command: |
           docker-compose up --build -d
       - run:
+         name: docker-compose stop
+         command: docker-compose stop
+      - run:
+         name: docker-compose up again
+         command: docker-compose up -d
+      - run:
          name: RSpec
          command: docker-compose run web bundle exec rspec spec/models 
       - run:
