@@ -10,11 +10,10 @@ jobs:
   test:
     docker:
       - image: akito1201/myspot
-      working_directory: /var/www/myspot
     steps:
       - checkout
       - run:
-        name: Docker Compose のインストール
+         name: Docker Compose のインストール
          command: |
           curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
           chmod +x ~/docker-compose
@@ -25,8 +24,6 @@ jobs:
          command: |
           docker-compose up -d
           docker-compose exec web rspec spec/models
-
-
 
 workflows:
     # build_and_push_imageという名前のworkflowを定義
