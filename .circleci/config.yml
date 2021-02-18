@@ -10,18 +10,18 @@ jobs:
     test:
         docker:
           - image: akito1201/myspot
-            working_directory: /var/www/myspot
+          working_directory: /var/www/myspot
         steps:
           - checkout
           - run:
-            name: Docker Compose のインストール
-            command: |
-              curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
-              chmod +x ~/docker-compose
-              sudo mv ~/docker-compose /usr/local/bin/docker-compose
+              name: Docker Compose のインストール
+              command: |
+                curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
+                chmod +x ~/docker-compose
+                sudo mv ~/docker-compose /usr/local/bin/docker-compose
           - setup_remote_docker
           - run:
-            name: コンテナの起動とテスト
+              name: コンテナの起動とテスト
               command: |
                 docker-compose up -d
                 docker-compose exec web rspec spec/models
