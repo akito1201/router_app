@@ -15,33 +15,31 @@ jobs:
     steps:
       - checkout
       - setup_remote_docker
+      
       - run:
          name: Install Docker Compose
-         working_directory: /var/www/myspot
          command: |
           curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
           chmod +x ~/docker-compose
           mv ~/docker-compose /usr/local/bin/docker-compose
+
       - run:
          name: docker-compose up
          command: |
-          docker-compose up --build -d
+          docker-compose up -d --build
+
       - run:
-         name: docker-compose stop
-         command: docker-compose stop
-      - run:
-         name: docker-compose up again
-         command: docker-compose up -d
-      - run:
-         name: db接続を待機
+         name: sleep
          command: sleep 10
+
       - run:
          name: RSpec
-         command: docker-compose exec web bundle exec rspec spec/models
+         command: docker-compose exec -d web bundle exec rspec spec/models
+
       - run:
          name: docker-compose down
-         command: docker-compose down
-
+         command: |
+          docker-compose down
 workflows:
     # build_and_push_imageという名前のworkflowを定義
     build_and_push_image:

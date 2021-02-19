@@ -8,4 +8,5 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /myspot
 COPY Gemfile Gemfile.lock /myspot/
 RUN gem install bundler:2.1.4 && bundle install
+COPY . .
 

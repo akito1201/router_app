@@ -27,7 +27,7 @@ development:
 test:
   <<: *default
   database: myspot_test
-  #password:
+  password:
   #socket: /tmp/mysql.sock
 
 
