@@ -17,6 +17,7 @@ jobs:
       - setup_remote_docker
       - run:
          name: Install Docker Compose
+         working_directory: /var/www/myspot
          command: |
           curl -L https://github.com/docker/compose/releases/download/1.19.0/docker-compose-`uname -s`-`uname -m` > ~/docker-compose
           chmod +x ~/docker-compose
@@ -36,7 +37,7 @@ jobs:
          command: sleep 10
       - run:
          name: RSpec
-         command: docker-compose exec web bundle exec rspec spec/models RAILS_ENV=test
+         command: docker-compose exec web bundle exec rspec spec/models
       - run:
          name: docker-compose down
          command: docker-compose down
