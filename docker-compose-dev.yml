@@ -10,7 +10,7 @@ services:
     ports:
       - '3000:3000'
     volumes:
-      - '.:/myspot'
+      - '.:/var/www/myspot'
       - 'mysql-socket:/tmp/sockets'
     command: sh -c "bundle exec rails db:migrate && bundle exec rails s -b 0.0.0.0"
     tty: true

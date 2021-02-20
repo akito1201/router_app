@@ -57,7 +57,7 @@ workflows:
             requires:
                 - aws-ecr/build-and-push-image
             aws-region: AWS_REGION
-            family: 'myspot-real'
+            family: 'myspot-production'
             cluster-name: 'myspot-cluster'
             service-name: 'myspot-service'
             container-image-name-updates: 'container=rails,tag=${CIRCLE_SHA1}'
