@@ -9,8 +9,7 @@ RUN apt-get update && apt-get install yarn
 WORKDIR /var/www/myspot
 
 COPY Gemfile Gemfile.lock ./
-RUN  gem install bundler && bundle install
+RUN gem install bundler &&  bundle install
 
 COPY . .
-
 CMD ["rails", "s", "-e", "production"]
