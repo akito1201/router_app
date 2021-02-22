@@ -11,5 +11,4 @@ WORKDIR /var/www/myspot
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler &&  bundle install
 COPY . .
-RUN echo "$RAILS_MASTER_KEY > /config/master.key"
 CMD ["rails", "s", "-e", "production"]

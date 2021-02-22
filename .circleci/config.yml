@@ -28,9 +28,9 @@ jobs:
          command: |
           docker-compose up -d --build
 
-      - run:
-         name: sleep
-         command: sleep 10
+#      - run:
+#         name: sleep
+#         command: sleep 10
 
       - run:
          name: RSpec
