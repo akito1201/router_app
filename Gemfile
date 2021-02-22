@@ -67,7 +67,7 @@ gem 'image_processing', '~> 1.2'
 gem 'ransack'
 gem 'aws-sdk-s3', require: false
 gem 'rails-i18n'
-
+gem 'actiontext'
 
 group :production do
   gem 'unicorn', '5.4.1'
