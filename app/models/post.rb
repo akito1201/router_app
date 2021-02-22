@@ -8,7 +8,6 @@ class Post < ApplicationRecord
   has_many :favorites, dependent: :destroy
   has_many :plans, dependent: :destroy
 
-  
   with_options presence: true do
     validates :title
     validates :outline
@@ -21,11 +20,12 @@ class Post < ApplicationRecord
 
   def self.search(search, num)
     if search != ''
-      if num == 1
+      case num
+      when 1
         Post.where('title LIKE(?)', "%#{search}%")
-      elsif num == 2
+      when 2
         Post.where('city LIKE(?)', "%#{search}%")
-      elsif num == 3
+      when 3
         Post.where('outline LIKE(?)', "%#{search}%")
       end
     else

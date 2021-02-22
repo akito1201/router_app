@@ -9,9 +9,10 @@ class Plan < ApplicationRecord
 
   def self.search(search, num)
     if search != ''
-      if num == 1
+      case num
+      when 1
         Plan.where('place LIKE(?)', "%#{search}%")
-      elsif num == 2
+      when 2
         Plan.where('text LIKE(?)', "%#{search}%")
       end
     end

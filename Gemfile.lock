@@ -304,6 +304,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  actiontext
   active_hash
   aws-sdk-s3
   bootsnap (>= 1.4.2)
