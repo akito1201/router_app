@@ -12,8 +12,10 @@ COPY Gemfile Gemfile.lock ./
 RUN gem install bundler &&  bundle install
 COPY . .
 
+RUN bundle exec rails webpacker:install
+
 RUN SECRET_KEY_BASE=placeholder bundle exec rails assets:precompile \
  && yarn cache clean \
  && rm -rf node_modules tmp/cache
-RUN bundle exec rails webpacker:install
+
 CMD ["rails", "s", "-e", "production"]
