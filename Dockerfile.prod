@@ -12,7 +12,7 @@ COPY Gemfile Gemfile.lock ./
 RUN gem install bundler &&  bundle install
 COPY . .
 
-RUN SECRET_KEY_BASE=placeholder bundle exec rails assets:precompile RAILS_ENV=production\
+RUN SECRET_KEY_BASE=RAILS_ENV=production bundle exec rails assets:precompile \
  && yarn cache clean \
  && rm -rf node_modules tmp/cache
 
