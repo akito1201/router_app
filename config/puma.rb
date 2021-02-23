@@ -32,7 +32,7 @@ pidfile ENV.fetch("PIDFILE") { "tmp/pids/server.pid" }
 # before forking the application. This takes advantage of Copy On Write
 # process behavior so workers use less memory.
 #
-# preload_app!
+preload_app!
 
 # Allow puma to be restarted by `rails restart` command.
 plugin :tmp_restart
@@ -43,5 +43,24 @@ _proj_path = "#{File.expand_path("../..", __FILE__)}"
 #pidfile "/var/www/#{_proj_name}.pid"
 bind "unix://#{_proj_path}/tmp/sockets/puma.sock"
 #directory _proj_path
-#daemonize true
+daemonize true
 # add end
+
+# puma_worker_killerの設定
+before_fork do
+  PumaWorkerKiller.config do |config|
+    # 閾値を超えた場合にkillする
+    config.ram           = 1024 # mb
+    config.frequency     = 5 * 60 # per 5minute
+    config.percent_usage = 0.9 # 90%
+    # 閾値を超えたかどうかに関わらず定期的にkillする
+    config.rolling_restart_frequency = 24 * 3600 # per 1day 
+    # workerをkillしたことをログに残す
+    config.reaper_status_logs = true
+  end
+  PumaWorkerKiller.start
+  ActiveRecord::Base.connection_pool.disconnect! if defined?(ActiveRecord)
+end
+on_worker_boot do
+  ActiveRecord::Base.establish_connection if defined?(ActiveRecord)
+end
