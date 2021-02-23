@@ -43,7 +43,7 @@ _proj_path = "#{File.expand_path("../..", __FILE__)}"
 #pidfile "/var/www/#{_proj_name}.pid"
 bind "unix://#{_proj_path}/tmp/sockets/puma.sock"
 #directory _proj_path
-daemonize true
+#daemonize true
 # add end
 
 # puma_worker_killerの設定
