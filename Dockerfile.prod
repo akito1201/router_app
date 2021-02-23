@@ -11,4 +11,9 @@ WORKDIR /var/www/myspot
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler &&  bundle install
 COPY . .
+
+RUN SECRET_KEY_BASE=placeholder bundle exec rails assets:precompile \
+ && yarn cache clean \
+ && rm -rf node_modules tmp/cache
+
 CMD ["rails", "s", "-e", "production"]
