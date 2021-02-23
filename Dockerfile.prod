@@ -11,5 +11,4 @@ WORKDIR /var/www/myspot
 COPY Gemfile Gemfile.lock ./
 RUN gem install bundler &&  bundle install
 COPY . .
-RUN bundle exec rails assets:precompile RAILS_ENV=production
 CMD ["rails", "s", "-e", "production"]
