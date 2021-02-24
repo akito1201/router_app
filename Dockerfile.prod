@@ -13,8 +13,8 @@ RUN gem install bundler &&  bundle install
 COPY . .
 
 RUN SECRET_KEY_BASE=RAILS_ENV=production bundle exec rails assets:precompile \
- && yarn install \
  && yarn cache clean \
- && rm -rf node_modules tmp/cache
+ && rm -rf node_modules tmp/cache \
+ && sleep 10
 
-#CMD ["rails", "s", "-e", "production"]
+CMD ["rails", "s", "-e", "production"]
