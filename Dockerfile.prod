@@ -13,6 +13,7 @@ RUN gem install bundler &&  bundle install
 COPY . .
 
 RUN SECRET_KEY_BASE=RAILS_ENV=production bundle exec rails assets:precompile \
+ && yarn install \
  && yarn cache clean \
  && rm -rf node_modules tmp/cache
 
