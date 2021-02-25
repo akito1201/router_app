@@ -18,4 +18,4 @@ RUN SECRET_KEY_BASE=RAILS_ENV=production bundle exec rails assets:precompile \
 
 
 #CMD ["bash", "start.sh"]
-CMD ["rails", "s", "-e", "production"]
+#CMD ["rails", "s", "-e", "production"]
