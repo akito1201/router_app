@@ -28,10 +28,6 @@ jobs:
          command: |
           docker-compose up -d --build
 
-#      - run:
-#         name: sleep
-#         command: sleep 10
-
       - run:
          name: RSpec
          command: docker-compose exec -d web bundle exec rspec spec/models
