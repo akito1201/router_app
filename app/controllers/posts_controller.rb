@@ -95,8 +95,8 @@ class PostsController < ApplicationController
   end
 
   def new_guest
-    user = User.find_or_create_by!(email: 'guest@com', nickname: 'guest') do |user| 
-    user.password = "aaa111"
+    user = User.find_or_create_by!(email: 'guest@com', nickname: 'guest') do |user|
+      user.password = 'aaa111'
     end
     sign_in user
     redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
