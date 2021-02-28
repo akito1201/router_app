@@ -1,7 +1,7 @@
 class PostsController < ApplicationController
-  before_action :authenticate_user!, except: [:index]
+  before_action :authenticate_user!, except: [:index, :new_guest]
   before_action :set_post, only: [:show, :edit, :update, :destroy]
-  before_action :move_to_index, except: [:index, :search]
+  before_action :move_to_index, except: [:index, :search, :new_guest]
 
   def index
     @posts = Post.all.order('created_at DESC')
@@ -92,6 +92,14 @@ class PostsController < ApplicationController
         @posts += texts
       end
     end
+  end
+
+  def new_guest
+    user = User.find_or_create_by!(email: 'guest@com', nickname: 'guest') do |user| 
+    user.password = "aaa111"
+    end
+    sign_in user
+    redirect_to root_path, notice: 'ゲストユーザーとしてログインしました。'
   end
 
   private
