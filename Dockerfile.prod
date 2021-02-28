@@ -15,7 +15,3 @@ COPY . .
 RUN SECRET_KEY_BASE=RAILS_ENV=production bundle exec rails assets:precompile \
  && yarn cache clean \
  && rm -rf node_modules tmp/cache \
-
-
-#CMD ["bash", "start.sh"]
-#CMD ["rails", "s", "-e", "production"]

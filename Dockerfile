@@ -11,5 +11,4 @@ RUN apt-get update && apt-get install yarn
 WORKDIR /var/www/myspot
 COPY Gemfile Gemfile.lock /var/www/myspot/
 RUN gem install bundler:2.1.4 && bundle install
-#COPY . .
 
