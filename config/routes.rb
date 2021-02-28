@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   get 'posts/:post_id/favorites', to: 'favorites#check'
   get 'users/:user_id/favorites', to: 'favorites#index'
   get 'posts/:post_id/favorite_counts/:count', to: 'favorite_counts#count'
+  post 'posts/guest_sign_in', to: 'posts#new_guest'
 
   root to: 'posts#index'
   devise_for :users

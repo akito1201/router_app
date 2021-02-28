@@ -130,3 +130,14 @@ header {
   display: contents;
 }
 
+.guest-login {
+  padding: 15px 5px;
+  background-color: #99FF99;
+  border-radius: 3px;
+  height: 50px;
+}
+
+.action {
+  margin: 20px 0 30px;
+  padding: 20px 0;
+}
