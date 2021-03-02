@@ -15,7 +15,7 @@
 
 ### 新規投稿作成画面
 「SPOT作成」押下 → SPOTの概要入力 → SPOT詳細入力
-![ec680c17f12eda392d884a022610ff37](https://user-images.githubusercontent.com/73152774/102014637-54afd700-3d9a-11eb-9fd6-909867a7a83f.gif)  
+[cb7e855015c02310163e8d985d8bd7a5.gif.zip](https://github.com/akito1201/myspot/files/6066553/cb7e855015c02310163e8d985d8bd7a5.gif.zip)
 SPOTの概要にはタイトル・概要・場所情報、メンバー情報（誰と一緒に行くか）を入力します。SPOT詳細には、具体的なSPOT名とその概要に加え、写真を投稿することもできます。「SPOTを追加する」を押下することで、複数のSPOTを登録することができます。
 
 ### 詳細表示画面
