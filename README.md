@@ -6,12 +6,7 @@
   休日のお出かけプランを立てるのに困ったことはありませんか？MySpotは、ユーザーがおすすめの場所（以下SPOT）を共有できるアプリケーションです。友人同士、家族での外出やデートなど、様々なシチュエーションに応じてSPOTを共有し合い、参考にし合える場になることを期待しています。
 
 ## URL
- http://3.113.239.68:3000/
-
-## テスト用アカウント
-  Basic認証（ID: admin, password: 2222)  
-  email: test@com  
-  password: aaa111
+ http://myspot.site
 
 
 ## DEMO
@@ -37,8 +32,6 @@ SPOT詳細画面 → 「編集」押下 → SPOT編集画面へ遷移 → 投稿
 家族との外出をできる限り充実したものにしたいと思い、作成しました。有名スポットから、ガイドブックなどには載っていない穴場まで、こだわりのスポットを共有できる場があれば、外出の際のヒントになるのではないかと考えました。
 
 
-
-
 ## 工夫したポイント
 行きたい場所の探しやすさを追求するため、検索機能とお気に入り登録機能を実装しました。ほとんどのユーザーは、場所から検索をすると考え、プルダウンで都道府県を選択し、場所を限定した上で検索できるように工夫しました。さらに、検索結果の中からスポットを選ぶ基準が必要と考え、お気に入り登録機能を実装しました。登録したスポットを一覧で表示できることはもちろん、各投稿にお気に入り登録数を表示させることで投稿の人気度を確認でき、ユーザーがスポットを選ぶ際に参考にすることができます。
 
@@ -48,15 +41,15 @@ SPOT詳細画面 → 「編集」押下 → SPOT編集画面へ遷移 → 投稿
 ### フロントエンド
   HTML, CSS, JavaScript, Ajax
 ### データベース
-  MySQL, SequelPro
+  MySQL
 ### インフラ
-  AWS(EC2)
+  AWS(EC2, ECR, ECS, RDS, Route53)
 ### Webサーバー
   nginx
 ### アプリケーションサーバ（本番環境）
-  unicorn
+  puma
 ### ソース管理
-  GitHub, GitHubDesktop
+  Git, GitHub
 ### テスト
   RSpec
 ### エディタ
@@ -105,13 +98,13 @@ has_many :favorites
 
 | Column     | Type          | Options           |
 | ---------  | ------        | -----------       |
-| text       | text          | null: false       |
+| content    | content       | null: false       |
 | post_id    | references    | foreign_key: true |
 | place      | string        | null: false       |
 
 ### association
   belongs_to :post
-
+  has_rich_text :content
 
 
   ### favorites テーブル
