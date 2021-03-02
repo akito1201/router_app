@@ -43,6 +43,8 @@ SPOT詳細画面 → 「編集」押下 → SPOT編集画面へ遷移 → 投稿
      HTML, CSS, JavaScript, Ajax
 ### データベース
      MySQL
+### ストレージ
+     S3
 ### インフラ
      AWS(EC2, ECR, ECS, RDS, Route53)
 ### Webサーバー
