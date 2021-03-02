@@ -37,23 +37,23 @@ SPOT詳細画面 → 「編集」押下 → SPOT編集画面へ遷移 → 投稿
 
 ## 使用技術（開発環境）
 ### バックエンド
-  Ruby/Ruby on Rails
+    * Ruby/Ruby on Rails
 ### フロントエンド
-  HTML, CSS, JavaScript, Ajax
+    * HTML, CSS, JavaScript, Ajax
 ### データベース
-  MySQL
+    * MySQL
 ### インフラ
-  AWS(EC2, ECR, ECS, RDS, Route53)
+    * AWS(EC2, ECR, ECS, RDS, Route53)
 ### Webサーバー
-  nginx
+    * nginx
 ### アプリケーションサーバ（本番環境）
-  puma
+    * puma
 ### ソース管理
-  Git, GitHub
+    * Git, GitHub
 ### テスト
-  RSpec
+    * RSpec
 ### エディタ
-  VSCode
+    * VSCode
 
 ## 課題
   現段階では、ユーザー同士の交流ができないことが課題として挙げられます。投稿について、ユーザーが感想を述べたり、意見交換することができれば、新たなアイデアが生まれ、活性化していくと考えています。したがって、コメント投稿機能を追加で実装することで、よりよいアプリケーションにバージョンアップしていきたい思います。
