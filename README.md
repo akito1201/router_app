@@ -44,7 +44,7 @@ SPOT詳細画面 → 「編集」押下 → SPOT編集画面へ遷移 → 投稿
 ### 開発環境
      Docker
 ### バックエンド
-     Ruby/Ruby on Rails
+     Ruby / Ruby on Rails
 ### フロントエンド
      HTML, CSS, JavaScript, Ajax
 ### AWS
