@@ -53,7 +53,7 @@ SPOT詳細画面 → 「編集」押下 → SPOT編集画面へ遷移 → 投稿
      MySQL
 ### Webサーバー
      Nginx
-### アプリケーションサーバ
+### アプリケーションサーバー
      puma
 ### CI/CD
     CircleCI
