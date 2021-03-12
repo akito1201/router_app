@@ -60,18 +60,20 @@ class PostsController < ApplicationController
       city = posts.search(params[:keyword], 2)
       outline = posts.search(params[:keyword], 3)
       @posts = title + city + outline - (title && city && outline) + (title && city && outline)
-      # Planのカラム検索
-      place = Plan.search(params[:keyword], 1)
-      places = posts.where(id: place[0].post_id..place[place.length - 1].post_id) if place.present?
-      text = Plan.search(params[:keyword], 2)
-      texts = posts.where(id: text[0].post_id..text[text.length - 1].post_id) if text.present?
-      if place.present? && text.present?
-        @posts += texts + places - (texts && places) + (texts && places)
-      elsif place.present?
-        @posts += places
-      elsif text.present?
-        @posts += texts
-      end
+
+      # # Planのカラム検索
+      # place = Plan.search(params[:keyword], 1)
+      # places = posts.where(id: place[0].post_id..place[place.length - 1].post_id) if place.present?
+      # content = Plan.search(params[:keyword], 2)
+      # contents = posts.where(id: content[0].post_id..content[content.length - 1].post_id) if content.present?
+      # if place.present? && content.present?
+      #   @posts += contents + places - (contents && places) + (contents && places)
+      # elsif place.present?
+      #   @posts += places
+      # elsif content.present?
+      #   @posts += contents
+      # end
+
       # 都道府県を選択していない場合
     elsif pref == '--都道府県を選択--'
       # Postのカラム検索
@@ -79,18 +81,20 @@ class PostsController < ApplicationController
       city = Post.search(keyword, 2)
       outline = Post.search(keyword, 3)
       @posts = title + city + outline - (title && city && outline) + (title && city && outline)
-      # Planのカラム検索
-      place = Plan.search(params[:keyword], 1)
-      places = Post.where(id: place[0].post_id..place[place.length - 1].post_id) if place.present?
-      text = Plan.search(params[:keyword], 2)
-      texts = Post.where(id: text[0].post_id..text[text.length - 1].post_id) if text.present?
-      if place.present? && text.present?
-        @posts += texts + places - (texts && places) + (texts && places)
-      elsif place.present?
-        @posts += places
-      elsif text.present?
-        @posts += texts
-      end
+
+      # # Planのカラム検索
+      # place = Plan.search(params[:keyword], 1)
+      # places = Post.where(id: place[0].post_id..place[place.length - 1].post_id) if place.present?
+      # content = Plan.search(params[:keyword], 2)
+      # contents = Post.where(id: content[0].post_id..content[content.length - 1].post_id) if content.present?
+      # if place.present? && content.present?
+      #   @posts += contents + places - (contents && places) + (contents && places)
+      # elsif place.present?
+      #   @posts += places
+      # elsif content.present?
+      #   @posts += contents
+      # end
+
     end
   end
 
