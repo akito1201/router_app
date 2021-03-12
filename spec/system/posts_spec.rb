@@ -1,6 +1,6 @@
 require 'rails_helper'
 
-RSpec.describe 'SPOT投稿', type: :system do
+RSpec.describe 'SPOT投稿', js: true, type: :system do
   before do
     @user = FactoryBot.create(:user)
     @post = FactoryBot.build(:post)
@@ -123,7 +123,7 @@ RSpec.describe 'Post編集（タイトルと概要）', type: :system do
   end
 end
 
-RSpec.describe 'plan編集', type: :system do
+RSpec.describe 'plan編集', js: true, type: :system do
   before do
     @plan1 = FactoryBot.create(:plan)
     @plan2 = FactoryBot.create(:plan)
