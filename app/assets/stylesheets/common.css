@@ -1,15 +1,4 @@
-header {
-  width: 100%;
-  position: sticky;
-  top:0;
-  height:7vh;
-  padding: 10px 20px 0px;
-  z-index:999;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background: rgba(45,45,45, 0.8);
-}
+
 
 .icon {
   color: white;
@@ -143,14 +132,63 @@ header {
 }
 
 
-.test {
-  position: absolute;
-  height: 50px;
-  width: 50px;
-  background-color: red;
+header{
+  position: relative;
+  width: 100%;
 
+  display: flex;
+
+    width: 100%;
+    position: sticky;
+    top:0;
+    height:7vh;
+    padding: 10px 20px 0px;
+    z-index:999;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(45,45,45, 0.8);
+  }
+
+ul > li{
+  display: inline-block;
+}
+ul > li > a{
+  padding: 15px 30px;
+  display: block;
+  font-size: 0.8em;
+  text-transform: uppercase;
+  letter-spacing: .2em;
+}
+ul > li > span{
+  margin-left: 1.2em;
 }
 
-.icon {
-  position: relative;
+/* Submenu */
+
+ul li ul{
+  position: absolute;
+  top: 60px;
+  left: 50px;
+}
+ul li ul li{
+  display: block;
+}
+ul li ul li a{
+  background-color: #efefef;
+  color: #444;
+}
+ul li ul li a:hover{
+  background-color: #ddd;
+}
+
+.sample01 ul li ul{
+  display: none;
+}
+.sample01 ul li:hover ul{
+  display: block;
+}
+
+.header-right{
+  display: flex;
 }
