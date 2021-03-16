@@ -15,72 +15,49 @@
   </head>
 
   <body>
-    <header class='top-page-header'>
-        <%# アイコン トップページへのリンク%>
 
+<header class="sample01">
 
-
-
-
-
-  <div class="container">
-  <div class="row align-items-center">
-    <div class="col">
-      <a href="/" class="icon"><i class="fas fa-route"></i>MySpot</a>
-
-    <div class="test">
-      
-    </div>
-    </div>
-
-
-
-
-
-    <div class="col">
-      <p><%= link_to 'HOT SPOT', favorite_counts_path, class: "route-list" %></p>
-    </div>
-    <div class="col">
-      <p><%= link_to 'お気に入り', "/users/#{current_user.id}/favorites", class: "favorite-list" %></p>
-    </div>
-    <div class="col">
-      <p><%= link_to "SPOT作成", new_post_path, class: "new-list" %></p>
-    </div>
-
-<div class="col">
-          <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
-          <div class="select-pref">
-            <%= form.collection_select(:pref, Prefecture.all, :name, :name, {}, {class:"search-prefecture"}) %>
-          </div>
-          <div class="search-text">
-            <%= form.text_field :keyword, placeholder: "SPOTを検索する", class: "search-input" %>
-          </div>
-            <%= form.submit "検索", class: "search-btn" %>
+    <div class="header-left">
+    <ul>
+        <li><a href="/" class="icon"><i class="fas fa-route"></i>MySpot<span>▼</span></a>
+        <% if user_signed_in? %>
+            <ul>
+                <li><%= link_to 'HOT SPOT', favorite_counts_path %></li>
+                <li><%= link_to 'お気に入り', "/users/#{current_user.id}/favorites" %></li>
+                <li><%= link_to "SPOT作成", new_post_path %></li>
+            </ul>
         <% end %>
-</div>
+    </ul>
+    </div>
 
-    <% if user_signed_in? %>
-        <div class="col">
-      <p><%= link_to current_user.nickname, "/users/#{current_user.id}/index", class: "header-button user-nickname" %></p>  
-      </div>
-      <div class="col">
-      <p><%= link_to 'logout', destroy_user_session_path, method: :delete, class: "header-button logout" %></p> 
+
+        <div class="search-form">
+            <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
+          <%# <div class="select-pref"> %>
+            <li><%= form.collection_select(:pref, Prefecture.all, :name, :name, {}, {class:"search-prefecture"}) %></li>
+          <%# </div> %>
+          <%# <div class="search-text"> %>
+            <li><%= form.text_field :keyword, placeholder: "SPOTを検索する", class: "search-input" %></li>
+          <%# </div> %>
+            <><%= form.submit "検索", class: "search-btn" %></>
+        <% end %>
         </div>
-      <% else %>
-      <div class="col">
-        <p><%= link_to 'login', new_user_session_path, class: "header-button login" %></p>
+
+        <div class="user-status">
+        <% if user_signed_in? %>
+        <%= link_to current_user.nickname, "/users/#{current_user.id}/index", class: "header-button user-nickname" %>
+        <%= link_to 'logout', destroy_user_session_path, method: :delete, class: "header-button logout" %>
+        <% else %>
+        <%= link_to 'login', new_user_session_path, class: "header-button login" %>
+        <%= link_to '新規登録', new_user_registration_path, class: "header-button sign-up" %>
+        <% end %>
         </div>
-        <div class="col">
-        <p><%= link_to '新規登録', new_user_registration_path, class: "header-button sign-up" %></p>
-        </div>
-      <% end %>
 
+  
+  
 
-
-  </div>
-
-      
-    </header>
+</header>
     <%= yield %>
     <%# bootstrap用の記述 %>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
