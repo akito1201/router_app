@@ -103,7 +103,7 @@
 }
 
 .add-box {
-  width: 30%;
+  width: 300px;
   margin: 0 auto;
   text-align: center;
   background-color: #005500;
@@ -120,5 +120,15 @@
 
 .add-box:hover {
   background-color: green;
+}
 
+.plan-about {
+  text-align: center;
+}
+
+img {
+width:500px;
+max-width: 95%;
+height: auto;
+margin: 0 auto;
 }
