@@ -5,13 +5,19 @@
 
 .icon:hover{
   color: white;
-  opacity: 0.7;
 }
 
 .fa-route {
   font-size: 30px;
   color: white;
-  
+}
+
+.myspot-icon:hover {
+  opacity: 0.8;
+}
+
+.myspot-icon {
+  padding-right: 20px;
 }
 
 .header-button {
@@ -49,7 +55,7 @@
 
 }
 
-@media (max-width: 450px) {
+@media (max-width: 550px) {
   .sm-search-form{
     display: inline;
     display: flex;
@@ -62,16 +68,13 @@
     display: none;
   }
 
-  .icon {
-    font-size: 10px;
-  }
-
-  .fa-route {
-    font-size: 20px;
+  .header-left {
+    text-align: right;
+    width: 100%;
   }
 }
 
-@media (min-width: 450px) {
+@media (min-width: 550px) {
 .sm-search-form {
   display: none;
 }
@@ -176,9 +179,10 @@ ul > li > span{
 
 ul li ul{
   position: absolute;
-  top: 55px;
-  left: 120px;
+  top: 40px;
+  left: 8%;
 }
+
 ul li ul li{
   display: block;
 }
@@ -190,10 +194,10 @@ ul li ul li a:hover{
   background-color: #ddd;
 }
 
-.sample01 ul li ul{
+.top-wrapper ul li ul{
   display: none;
 }
-.sample01 ul li:hover ul{
+.top-wrapper ul li:hover ul{
   display: block;
 }
 
