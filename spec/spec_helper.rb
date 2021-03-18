@@ -12,8 +12,8 @@
 # the additional setup, and require it from the spec files that actually need
 # it.
 #
-ENV["RAILS_ENV"] ||= 'test'
-require File.expand_path("../../config/environment", __FILE__)
+ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path('../config/environment', __dir__)
 require 'rspec/rails'
 
 require 'database_cleaner'

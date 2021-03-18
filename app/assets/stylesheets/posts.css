@@ -108,6 +108,14 @@ body {
   overflow: hidden;
   max-width: 95%;
   }
+
+  .icon {
+    font-size: 10px;
+  }
+
+  .fa-route {
+    font-size: 20px;
+  }
 }
 
 .content {
