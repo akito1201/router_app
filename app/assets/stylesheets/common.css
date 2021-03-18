@@ -3,22 +3,16 @@
   width: 8%;
 }
 
+.icon:hover{
+  color: white;
+  opacity: 0.7;
+}
+
 .fa-route {
   font-size: 30px;
   color: white;
   
 }
-
-
-.nav {
-  display: flex;
-}
-
-.lists-left {
-  display: flex;
-}
-
-
 
 .header-button {
   margin-left:20px;
@@ -38,6 +32,49 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  margin: 0 0 0 auto;
+}
+
+@media (max-width: 768px) {
+  .search-prefecture {
+    font-size: 8px;
+    width: 40%;
+  }
+
+  .search-form{
+    font-size: 8px;
+    padding: 2px 4px;
+  }
+
+
+}
+
+@media (max-width: 450px) {
+  .sm-search-form{
+    display: inline;
+    display: flex;
+    justify-content: space-around;
+    margin: auto;
+    padding: 5px;
+  }
+
+  .search-form {
+    display: none;
+  }
+
+  .icon {
+    font-size: 10px;
+  }
+
+  .fa-route {
+    font-size: 20px;
+  }
+}
+
+@media (min-width: 450px) {
+.sm-search-form {
+  display: none;
+}
 }
 
 .select-pref p {
@@ -55,6 +92,8 @@
 .search-btn {
   box-shadow: 0 0 8px black;
   font-size: 13px;
+  color: #198754;
+    border-color: #198754;
 }
 
 .search-input {
@@ -62,16 +101,31 @@
   font-size: 13px;
 }
 
+.btn {
+  display: inline-block;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+  background-color: white;
+  padding: 5px 10px;
+  font-size: 13px;
+  border-radius: .25rem;
+}
+
+.search-btn:hover{
+  background-color: #198754;
+  color: white;
+}
+
 .sign-up {
   width: 20%;
 }
-
-
-.lists-right {
-  display: flex;
-  width:15%;
-}
-
 
 .field_with_errors {
   display: contents;
@@ -89,23 +143,20 @@
   padding: 20px 0;
 }
 
-
 header{
   position: relative;
   width: 100%;
-
   display: flex;
-
-    width: 100%;
-    position: sticky;
-    top:0;
-    height:7vh;
-    padding: 10px 20px 0px;
-    z-index:999;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: rgba(45,45,45, 0.8);
+  width: 100%;
+  position: sticky;
+  top:0;
+  height:7vh;
+  padding: 10px 20px 0px;
+  z-index:999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(45,45,45, 0.8);
   }
 
 ul > li{
@@ -115,7 +166,6 @@ ul > li > a{
   padding: 15px 30px;
   display: block;
   font-size: 0.8em;
-  text-transform: uppercase;
   letter-spacing: .2em;
 }
 ul > li > span{
@@ -126,8 +176,8 @@ ul > li > span{
 
 ul li ul{
   position: absolute;
-  top: 60px;
-  left: 50px;
+  top: 55px;
+  left: 120px;
 }
 ul li ul li{
   display: block;
@@ -149,4 +199,12 @@ ul li ul li a:hover{
 
 .header-right{
   display: flex;
+}
+
+.fa-bars {
+  font-size: 30px;
+}
+
+.menu-bar {
+  color: white;
 }

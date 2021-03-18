@@ -16,12 +16,6 @@ body {
 
 }
 
-.posts-wrapper {
-  text-align: center;
-  background: rgba(45,45,45, 0.9);
-}
-  
-
 .content {
   display: flex;
   padding-left: 30px;
@@ -36,7 +30,7 @@ body {
   padding: 5px 20px;
   margin: 10px 20px 15px 0;
   box-shadow: 0 0 8px gray;
-  width: 9%;
+  width: 80px;
 }
 
 .posts {
@@ -77,12 +71,58 @@ body {
   width:15%;
 }
 
+.what-kind{
+  background: rgba(45,45,45, 0.9);
+  display: inline;
+  font-size: 28px;
+  padding: 10px;
+}
+
+@media (max-width: 768px) {
+  .what-kind {
+    font-size: 18px;
+  }
+
+  .content {
+    font-size: 13px;
+  }
+
+  .edit-destroy-btn{
+    font-size: 13px;
+  }
+
+  .post-nickname{
+    font-size: 13px;;
+  }
+}
+
+@media (max-width: 450px) {
+  .content-name {
+    display: none;
+    border-bottom: double 1px white;
+  }
+  
+  .content {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 95%;
+  }
+}
+
+.content {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+  max-width: 95%;
+  }
 
 .posts-wrapper {
-  width: 20%;
   margin: 20px auto;
   color: white;
-  padding: 5px 0;
+
+  text-align: center;
+
 }
 
 .form-wrapper {
@@ -168,3 +208,4 @@ body {
 .post-about {
   text-align: left;
 }
+

@@ -5,20 +5,38 @@
 
 
 
+
+
 .login-box {
-  width: 30%;
-  height: 50%;
-  margin: 100px auto;
+  width: 50vw;
+  margin: 50px auto;
   text-align: center;
-  background: rgba(45,45,45, 0.8);
+  background: rgba(45,45,45, 0.9);
   color: white;
+  height: 100%;
+  padding: 30px 0 20px;
+  box-shadow: 0 0 8px gray;
 }
+
 
 .login-box h2 {
   padding: 20px 0 30px;
 }
 
 .field {
-  margin-bottom: 20px;;
+  margin-bottom: 20px;
 }
 
+.input {
+  width: 50%;
+}
+
+@media (max-width: 768px) {
+  .login-box {
+    width: 85vw;
+  }
+
+  .input {
+    width: 200px;
+  }
+}
