@@ -51,6 +51,7 @@
   font-weight: bold;
   min-width: 170px;
   margin-bottom: 10px;
+  margin-top: 20px;
 }
 
 .plan-form-wrapper {
@@ -131,4 +132,10 @@ width:500px;
 max-width: 95%;
 height: auto;
 margin: 0 auto;
+}
+
+@media (max-width: 550px) {
+  .add-plan {
+    width: 80%;
+  }
 }
