@@ -7,13 +7,12 @@ body {
   background-image: url('travel.png');
   background-size: cover;
   background-position: center center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 .post {
   text-align: center;
-
 }
 
 .content {
@@ -68,7 +67,9 @@ body {
 .favorite-count {
   background-color: orange;
   border-radius: 20px;
-  width:15%;
+  font-size: 13px;
+  text-align: center;
+  width: 100px;
 }
 
 .what-kind{
@@ -100,6 +101,7 @@ body {
   .content-name {
     display: none;
     border-bottom: double 1px white;
+    margin-bottom: 2px;
   }
   
   .content {
@@ -115,6 +117,16 @@ body {
 
   .fa-route {
     font-size: 20px;
+  }
+
+  .favorite-count {
+    background-color: orange;
+    border-radius: 20px;
+    display: block;
+    font-size: 10px;
+    text-align: left;
+    width: 80px;
+    margin-right: 5px;
   }
 }
 

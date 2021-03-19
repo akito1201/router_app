@@ -22,6 +22,16 @@
     <a href="/" class="icon">MySpot</a>
   </div>
 
+    <div class="search-form">
+      <% if user_signed_in? %>
+        <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
+          <li><%= form.collection_select(:pref, Prefecture.all, :name, :name, {}, {class:"search-prefecture"}) %></li>
+          <li><%= form.text_field :keyword, placeholder: "SPOTを検索する", class: "search-input" %></li>
+          <%= form.submit "検索", class: "btn search-btn" %>
+        <% end %>
+      <% end %>
+    </div>
+
     <div class="header-left">    
       <ul>
         <li class="menu-bar"><i class="fas fa-bars"></i>
@@ -33,26 +43,15 @@
               <li><%= link_to "#{current_user.nickname}の投稿", "/users/#{current_user.id}/index" %></li>
               <li><%= link_to 'ログアウト', destroy_user_session_path, method: :delete %></li>
             </ul>
+          <% else %>
+            <ul>
+              <li><%= link_to 'ログイン', new_user_session_path %></li>
+              <li><%= link_to '新規登録', new_user_registration_path %></li>
+            </ul>
           <% end %>
       </ul>
     </div>
 
-    <div class="search-form">
-      <% if user_signed_in? %>
-        <%= form_with(url: search_posts_path, local: true, method: :get, class: "search-form") do |form| %>
-          <li><%= form.collection_select(:pref, Prefecture.all, :name, :name, {}, {class:"search-prefecture"}) %></li>
-          <li><%= form.text_field :keyword, placeholder: "SPOTを検索する", class: "search-input" %></li>
-          <%= form.submit "検索", class: "btn search-btn" %>
-        <% end %>
-      <% end %>
-    </div>
-
-    <div class="user-status">
-      <% unless user_signed_in? %>
-        <%= link_to 'login', new_user_session_path, class: "header-button login" %>
-        <%= link_to '新規登録', new_user_registration_path, class: "header-button sign-up" %>
-      <% end %>
-    </div>
 </header>
 
     <%= form_with(url: search_posts_path, local: true, method: :get, class: "sm-search-form") do |form| %>

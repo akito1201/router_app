@@ -9,13 +9,13 @@
       <% else %>
         <% if @favorite == true %>
           <div class= "favorite-btn" style="background-color: #FF6600; color: white;" id= "favorite-btn" data_id=<%= @post.id %>>
-            <%= image_tag "favorite-star.png" ,id:"favorite-star-icon" ,width:"20",height:"20" %>
-            <span id="favorite">お気に入り登録済み</span>
+            <%= image_tag "favorite-star.png" ,id:"favorite-star-icon", class: "star" %>
+            <span id="favorite", class="favorite-status">お気に入り登録済み</span>
           </div>
         <% else %>
           <div class= "favorite-btn" id= "favorite-btn" data_id=<%= @post.id %>>
-            <%= image_tag "favorite-star.png" ,id:"favorite-star-icon" ,width:"20",height:"20" %>
-            <span id="favorite">お気に入りに登録する</span>
+            <%= image_tag "favorite-star.png" ,id:"favorite-star-icon", class:"star" %>
+            <span id="favorite", class="favorite-status">お気に入りに登録する</span>
           </div>
         <% end %>
       <% end %>
