@@ -36,9 +36,10 @@
 
 .search-form {
   display: flex;
-  align-items: right;
+  align-items: center;
   width: 100%;
   justify-content: flex-end;
+  vertical-align: middle;
 }
 
 @media (max-width: 768px) {
@@ -57,10 +58,9 @@
 
 @media (max-width: 550px) {
   .sm-search-form{
-    display: inline;
+    width: 100%;
     display: flex;
-    justify-content: space-around;
-    margin: auto;
+    margin: 0 auto;
     padding: 5px;
   }
 
@@ -87,10 +87,12 @@
 
 .search-prefecture {
   height: 20px;
-  width: 80%;
+  width: 95%;
   font-size: 10px;
   color: gray;
 }
+
+
 
 .search-btn {
   box-shadow: 0 0 8px black;
@@ -100,7 +102,7 @@
 }
 
 .search-input {
-  width: 80%;
+  width: 95%;
   font-size: 10px;
 }
 
@@ -180,7 +182,7 @@ ul > li > span{
 ul li ul{
   position: absolute;
   top: 50px;
-  right: 2%;
+  right: 10px;
 }
 
 ul li ul li{

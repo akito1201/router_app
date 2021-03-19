@@ -29,7 +29,8 @@ body {
   padding: 5px 20px;
   margin: 10px 20px 15px 0;
   box-shadow: 0 0 8px gray;
-  width: 80px;
+  width: 90px;
+  text-align: center;
 }
 
 .posts {
@@ -69,7 +70,7 @@ body {
   border-radius: 20px;
   font-size: 13px;
   text-align: center;
-  width: 100px;
+  width: 110px;
 }
 
 .what-kind{
@@ -97,6 +98,31 @@ body {
   }
 }
 
+@media (max-width: 550px) {
+  .region {
+    flex-direction: column;
+  }
+
+  .post-prefecture {
+    margin: auto;
+  }
+
+  .prefecture-select {
+    width: 80%;
+  }
+
+  .post-city {
+    margin: auto;
+  }
+
+  .weight-bold-text {
+    font-weight: bold;
+    min-width: 170px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+  }
+
+}
 
 @media (max-width: 450px) {
   .content-name {
@@ -106,10 +132,8 @@ body {
   }
   
   .content {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 95%;
+  overflow-wrap: break-word;
+
   }
 
   .icon {
@@ -126,16 +150,14 @@ body {
     display: block;
     font-size: 10px;
     text-align: left;
-    width: 80px;
+    width: 90px;
     margin-right: 5px;
   }
 }
-
 .content {
-  text-overflow: ellipsis;
-  white-space: nowrap;
-  overflow: hidden;
-  max-width: 95%;
+  overflow-wrap: anywhere;
+  text-align: left;
+  width: 95%;
   }
 
 .posts-wrapper {
@@ -191,11 +213,11 @@ body {
 }
 
 .post-city {
-  width: 40%;
+  width: 170px;
 }
 
 .post-prefecture {
-  width: 20%;
+  width: 170px;
 }
 
 .member-select {
