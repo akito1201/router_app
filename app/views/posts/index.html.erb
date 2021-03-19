@@ -8,12 +8,12 @@
       <div class="posts">
         <div class= "post">
           <% if post.favorite_counts.present? %>
-          <% if post.favorite_counts[0]['count'] > 0 %>
-          <div class="content">
-            <p class="content-name favorite-count">お気に入り登録数</p>
-            <%= post.favorite_counts[0]['count'] %>
-          </div>
-          <% end %>
+            <% if post.favorite_counts[0]['count'] > 0 %>
+              <div class="content">
+              <p class="content-name favorite-count">お気に入り</p>
+              <%= post.favorite_counts[0]['count'] %>
+              </div>
+            <% end %>
           <% end %>
           <div class="content">
             <p class="content-name">title</p>

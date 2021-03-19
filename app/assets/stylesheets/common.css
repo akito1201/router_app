@@ -17,7 +17,7 @@
 }
 
 .myspot-icon {
-  padding-right: 20px;
+  width: 30%;
 }
 
 .header-button {
@@ -36,9 +36,9 @@
 
 .search-form {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 0 0 0 auto;
+  align-items: right;
+  width: 100%;
+  justify-content: flex-end;
 }
 
 @media (max-width: 768px) {
@@ -67,11 +67,11 @@
   .search-form {
     display: none;
   }
+}
 
-  .header-left {
-    text-align: right;
-    width: 100%;
-  }
+.header-left {
+  text-align: right;
+  width: 10%;
 }
 
 @media (min-width: 550px) {
@@ -88,20 +88,20 @@
 .search-prefecture {
   height: 20px;
   width: 80%;
-  font-size: 13px;
+  font-size: 10px;
   color: gray;
 }
 
 .search-btn {
   box-shadow: 0 0 8px black;
-  font-size: 13px;
+  font-size: 10px;
   color: #198754;
-    border-color: #198754;
+  border-color: #198754;
 }
 
 .search-input {
   width: 80%;
-  font-size: 13px;
+  font-size: 10px;
 }
 
 .btn {
@@ -179,8 +179,8 @@ ul > li > span{
 
 ul li ul{
   position: absolute;
-  top: 40px;
-  left: 8%;
+  top: 50px;
+  right: 2%;
 }
 
 ul li ul li{
