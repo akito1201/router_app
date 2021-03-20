@@ -17,7 +17,7 @@ services:
     stdin_open: true
     depends_on:
       - db
-    e
+
   db:
     image: mariadb
     volumes:
